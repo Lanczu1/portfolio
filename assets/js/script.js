@@ -62,10 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const headerOffset = 80;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-  
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
+        // Use GSAP ScrollToPlugin for buttery smooth scroll regardless of CSS overflow quirks
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: { y: offsetPosition, autoKill: true },
+          ease: "power3.inOut"
         });
       }
     });
