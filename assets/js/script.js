@@ -777,41 +777,45 @@ window.copyToClipboard = function(text, element) {
   });
 };
 
-window.sendEmail = function(event) {
-  event.preventDefault();
-  
-  const form = event.target;
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const originalText = submitBtn.innerHTML;
-  submitBtn.innerHTML = 'Sending... <i data-lucide="loader" style="width: 18px; height: 18px; animation: spin 2s linear infinite;"></i>';
-  submitBtn.disabled = true;
+  // --- NETLIFY CONTACT FORM SUBMISSION ---
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Sending... <i data-lucide="loader" style="width: 18px; height: 18px; animation: spin 2s linear infinite;"></i>';
+      submitBtn.disabled = true;
 
-  const formData = new FormData(form);
-  const data = new URLSearchParams();
-  for (const pair of formData) {
-    data.append(pair[0], pair[1]);
+      const formData = new FormData(form);
+      const data = new URLSearchParams();
+      for (const pair of formData) {
+        data.append(pair[0], pair[1]);
+      }
+      
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data.toString()
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('Message successfully sent!');
+          form.reset();
+        } else {
+          alert('Failed to send message. Server responded with: ' + response.status);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while sending the message.');
+      })
+      .finally(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        if (window.lucide) { lucide.createIcons(); }
+      });
+    });
   }
-  
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: data.toString()
-  })
-  .then(response => {
-    if (response.ok) {
-      alert('Message successfully sent!');
-      form.reset();
-    } else {
-      alert('Failed to send message. Server responded with: ' + response.status);
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    alert('An error occurred while sending the message.');
-  })
-  .finally(() => {
-    submitBtn.innerHTML = originalText;
-    submitBtn.disabled = false;
-    if (window.lucide) { lucide.createIcons(); }
-  });
-};
