@@ -791,6 +791,7 @@ window.copyToClipboard = function(text, element) {
 
       const formData = new FormData(form);
       formData.append("access_key", "f62eb756-b6ef-417b-a599-87ee08bddde9");
+      formData.append("from_name", "Portfolio Contact Form");
       
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
