@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Lance Aron Oboza | Aspiring Gaming Content Creator, Web & Mobile Developer, Video Editor, Tech Support</title>
+  <meta name="description"
+    content="Portfolio of Lance Aron Oboza, a Web & Mobile Developer, Video Editor, Gaming Content Creator, and Tech Support Specialist based in Laguna, Philippines. Discover modern web apps, gaming clips, and production workflows.">
+  <meta name="keywords"
+    content="Lance Aron Oboza, Web Developer, Mobile Developer, Video Editor, Gaming Content Creator, Tech Support, React Native, PHP, Expo, Supabase, Video Editing, Laguna, Philippines">
+  <meta name="author" content="Lance Aron Oboza">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lance Aron Oboza | Premium Portfolio">
+  <meta property="og:description"
+    content="Aspiring Gaming Content Creator, Web & Mobile Developer, Video Editor, and Tech Support. Creating engaging digital experiences through creativity, technology, and storytelling.">
+  <meta property="og:image" content="assets/images/profile.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+  <!-- Preloader Screen -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-logo">
+      <span class="preloader-letter">L</span><span class="preloader-letter">A</span><span
+        class="preloader-letter">N</span><span class="preloader-letter">C</span><span
+        class="preloader-letter">E</span><span class="preloader-letter preloader-space">&nbsp;</span><span
+        class="preloader-letter">A</span><span class="preloader-letter">R</span><span
+        class="preloader-letter">O</span><span class="preloader-letter">N</span><span
+        class="preloader-letter preloader-space">&nbsp;</span><span class="preloader-letter">O</span><span
+        class="preloader-letter">B</span><span class="preloader-letter">O</span><span
+        class="preloader-letter">Z</span><span class="preloader-letter">A</span>
+    </div>
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar"></div>
+    </div>
+    <div class="preloader-counter">0%</div>
+  </div>
+
+  <!-- Dynamic Particle Canvas Background -->
+  <div class="bg-canvas-container">
+    <canvas id="particle-canvas"></canvas>
+  </div>
+  <div class="glow-overlay"></div>
+
+  <!-- Custom Interactive Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-dot"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <a href="#" class="logo">
+      LANCE<span class="logo-dot"></span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#currently-learning">Roadmap</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-accent" style="padding: 8px 18px; font-size: 0.85rem;">Let's Talk</a>
+    </div>
+
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </header>
+
+  <!-- Mobile Dropdown Navigation Menu -->
+  <div class="mobile-menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#workflow">Workflow</a>
+    <a href="#currently-learning">Roadmap</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- 1. HOME / HERO SECTION -->
+    <section id="home" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-subtitle">
+            <span></span> Lance Aron Oboza
+          </div>
+          <h1 class="hero-title">
+            <span class="highlight" id="typing-text"></span>
+          </h1>
+          <p class="hero-tagline">
+            Passionate about creating engaging content, developing modern applications, and solving real-world problems
+            through technology and creativity.
+          </p>
+          <div class="hero-ctas">
+            <a href="#projects" class="btn btn-primary">
+              View Projects <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              Contact Me <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
+            </a>
+            <a href="#" class="btn btn-secondary" style="border-style: dashed;">
+              Download Resume <i data-lucide="download" style="width: 18px; height: 18px;"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="profile-sphere-wrap">
+            <div class="profile-sphere-glow"></div>
+            <div class="profile-sphere-border"></div>
+            <div class="profile-image-container">
+              <img src="assets/images/profile.png" alt="Lance Aron Oboza Profile Picture">
+            </div>
+
+            <!-- Floating Gaming Badges -->
+            <div class="floating-badge badge-1">
+              <i data-lucide="gamepad-2" style="color: var(--accent); width: 16px; height: 16px;"></i> Gaming Creator
+            </div>
+            <div class="floating-badge badge-2">
+              <i data-lucide="code-2" style="color: var(--accent); width: 16px; height: 16px;"></i> Full Stack
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ABOUT ME SECTION -->
+    <section id="about" class="container" style="padding-top: 60px; padding-bottom: 60px;">
+      <div class="section-header">
+        <div class="section-label">Identity</div>
+        <h2 class="section-title">About Me</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-bio">
+            I am an aspiring gaming content creator, web and mobile developer, and video editor passionate about
+            creating engaging digital experiences. My interests span across gaming content creation, modern web
+            development, mobile applications, and creative video production.
+          </p>
+          <p class="about-bio" style="color: var(--text-muted);">
+            I enjoy learning new technologies, improving my editing techniques, and building projects that combine
+            creativity with technical skills. I strive to deliver high-quality work while continuously developing my
+            skills in content creation, software development, and digital marketing.
+          </p>
+
+          <div class="career-objective-box">
+            <h3>Career Objective</h3>
+            <p>
+              "To build a career where I can combine my creativity, technical expertise, and passion for gaming by
+              creating engaging content, developing modern applications, and contributing to innovative digital
+              projects."
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- 3. SERVICES SECTION -->
+    <section id="services" class="container">
+      <div class="section-header">
+        <div class="section-label">Expertise</div>
+        <h2 class="section-title">My Services</h2>
+        <p class="section-desc">Delivering high-value solutions across development, design, and content production
+          pipelines.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1: Gaming Content Creation -->
+        <div class="glass-card service-card mouse-glow-card">
+          <div style="margin-bottom: 25px;">
+            <div class="service-icon">
+              <i data-lucide="gamepad-2"></i>
+            </div>
+            <h3 class="service-title" style="color: #ffffff;">Gaming Content Creation</h3>
+            <p style="color: #ffffff; font-size: 1rem; line-height: 1.6;">Create engaging gaming content designed to
+              entertain, grow communities, and increase audience engagement across modern digital platforms.</p>
+          </div>
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <div
+              style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 15px; color: #22C55E; font-weight: 700;">
+              What I Offer</div>
+            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; color: #ffffff;">
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Gaming Video Editing</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> YouTube Shorts</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> TikTok Content</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Thumbnail Design</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Content Planning</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> SEO Basics</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 2: Web & Mobile Development -->
+        <div class="glass-card service-card mouse-glow-card">
+          <div style="margin-bottom: 25px;">
+            <div class="service-icon">
+              <i data-lucide="monitor-smartphone"></i>
+            </div>
+            <h3 class="service-title" style="color: #ffffff;">Web & Mobile Development</h3>
+            <p style="color: #ffffff; font-size: 1rem; line-height: 1.6;">Build responsive, scalable, and user-friendly
+              websites and mobile applications with clean code and modern technologies.</p>
+          </div>
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <div
+              style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 15px; color: #22C55E; font-weight: 700;">
+              What I Offer</div>
+            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; color: #ffffff;">
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Portfolio Websites</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Business Websites</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Landing Pages</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Mobile Applications</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> REST API Integration</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Database Management</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 3: Video Editing -->
+        <div class="glass-card service-card mouse-glow-card">
+          <div style="margin-bottom: 25px;">
+            <div class="service-icon">
+              <i data-lucide="film"></i>
+            </div>
+            <h3 class="service-title" style="color: #ffffff;">Video Editing</h3>
+            <p style="color: #ffffff; font-size: 1rem; line-height: 1.6;">Produce high-quality videos with smooth
+              pacing, cinematic transitions, subtitles, and motion graphics tailored for social media and digital
+              platforms.</p>
+          </div>
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <div
+              style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 15px; color: #22C55E; font-weight: 700;">
+              What I Offer</div>
+            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; color: #ffffff;">
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Gaming Videos</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> YouTube Videos</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Shorts & Reels</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Motion Graphics</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Captions & Subtitles</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Color Correction</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 4: Technical Support -->
+        <div class="glass-card service-card mouse-glow-card">
+          <div style="margin-bottom: 25px;">
+            <div class="service-icon">
+              <i data-lucide="wrench"></i>
+            </div>
+            <h3 class="service-title" style="color: #ffffff;">Technical Support</h3>
+            <p style="color: #ffffff; font-size: 1rem; line-height: 1.6;">Provide reliable technical assistance for
+              software, hardware, development environments, and system troubleshooting.</p>
+          </div>
+          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <div
+              style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 15px; color: #22C55E; font-weight: 700;">
+              What I Offer</div>
+            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; color: #ffffff;">
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> PC Troubleshooting</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Software Installation</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Development Environment Setup
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Git & VS Code Configuration
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Performance Optimization</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
+                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Basic Networking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SKILLS & TECH STACK SECTION -->
+    <section id="skills" class="container">
+      <div class="section-header">
+        <div class="section-label">Competency</div>
+        <h2 class="section-title">Skills & Tech Stack</h2>
+        <p class="section-desc">The languages, tools, frameworks, and content execution methods I use to build projects.
+        </p>
+      </div>
+
+      <div class="skills-layout">
+        <!-- Tech Stack List -->
+        <div>
+          <h3 style="font-family: var(--font-accent); font-size: 1.25rem; margin-bottom: 25px; color: var(--accent);">
+            Development Tools</h3>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="code" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">HTML5</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><img src="assets/images/css-3.png" alt="CSS3"
+                  style="width: 28px; height: 28px; object-fit: contain;"></div>
+              <span class="tech-name">CSS3</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="braces" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">JavaScript</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="database" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">PHP</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="layout-grid" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">Bootstrap</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="server" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">MySQL</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="smartphone" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">React Native</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="box" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">Expo</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="cloud" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">Supabase</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="terminal" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">VS Code</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="git-branch" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">Git</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><img src="assets/images/github.svg" alt="GitHub"
+                  style="width: 28px; height: 28px; object-fit: contain;"></div>
+              <span class="tech-name">GitHub</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="send" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">Postman</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><img src="assets/images/figma.png" alt="Figma"
+                  style="width: 28px; height: 28px; object-fit: contain;"></div>
+              <span class="tech-name">Figma</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="image" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">Canva</span>
+            </div>
+            <div class="tech-card">
+              <div class="tech-logo-wrap"><i data-lucide="cpu" style="width: 28px; height: 28px;"></i></div>
+              <span class="tech-name">AI Tools</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Creation & Video Progress Bars -->
+        <div>
+          <h3 style="font-family: var(--font-accent); font-size: 1.25rem; margin-bottom: 25px; color: var(--accent);">
+            Content Production Competency</h3>
+          <div class="progress-list">
+            <!-- Video Editing -->
+            <div class="progress-item-wrap">
+              <div class="progress-header">
+                <span class="progress-name"><i data-lucide="video" style="width:16px; height:16px;"></i> Video Editing
+                  (CapCut)</span>
+                <span class="progress-val">80%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" data-progress="80%"></div>
+              </div>
+            </div>
+
+            <!-- Gaming Content Planning -->
+            <div class="progress-item-wrap">
+              <div class="progress-header">
+                <span class="progress-name"><i data-lucide="calendar" style="width:16px; height:16px;"></i> Gaming
+                  Content Planning</span>
+                <span class="progress-val">70%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" data-progress="70%"></div>
+              </div>
+            </div>
+
+            <!-- Short-form Video -->
+            <div class="progress-item-wrap">
+              <div class="progress-header">
+                <span class="progress-name"><i data-lucide="play" style="width:16px; height:16px;"></i> Short-form Video
+                  Production</span>
+                <span class="progress-val">70%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" data-progress="70%"></div>
+              </div>
+            </div>
+
+            <!-- Tech Support -->
+            <div class="progress-item-wrap">
+              <div class="progress-header">
+                <span class="progress-name"><i data-lucide="wrench" style="width:16px; height:16px;"></i> Tech
+                  Support</span>
+                <span class="progress-val">90%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" data-progress="90%"></div>
+              </div>
+            </div>
+
+            <!-- Thumbnail & SEO -->
+            <div class="progress-item-wrap">
+              <div class="progress-header">
+                <span class="progress-name"><i data-lucide="palette" style="width:16px; height:16px;"></i> Thumbnail
+                  Design & SEO Basics</span>
+                <span class="progress-val">50%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" data-progress="50%"></div>
+              </div>
+            </div>
+
+            <!-- Motion & Subtitle -->
+            <div class="progress-item-wrap">
+              <div class="progress-header">
+                <span class="progress-name"><i data-lucide="activity" style="width:16px; height:16px;"></i> Motion
+                  Graphics & Subtitles</span>
+                <span class="progress-val">50%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" data-progress="50%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FEATURED PROJECTS SECTION -->
+    <section id="projects" class="container">
+      <div class="section-header">
+        <div class="section-label">Case Studies</div>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-desc">Handcrafted web applications, mobile tools, and content campaigns designed to solve real
+          problems.</p>
+      </div>
+
+      <div class="projects-list">
+
+        <!-- Project 1: CookMate (AI Cooking Assistant & Meal Planner) -->
+        <article class="project-item">
+          <div class="project-info">
+            <div class="project-num">PROJECT 01</div>
+            <h3 class="project-title">CookMate Kitchen</h3>
+            <p class="project-desc">
+              A premium recipes, pantry-scanning, and AI-driven meal planner application. Features custom recipe
+              downloads, intelligent AI chat cooking advice, scan tools, and beautiful responsive layouts.
+            </p>
+            <div class="project-features-tag">
+              <span class="feature-tag">Scan Pantry</span>
+              <span class="feature-tag">AI Assistant</span>
+              <span class="feature-tag">Meal Planner</span>
+              <span class="feature-tag">Recipe Directory</span>
+            </div>
+            <div class="project-tech">
+              <span class="tech-pill">React</span>
+              <span class="tech-pill">NodeJS</span>
+              <span class="tech-pill">TailwindCSS</span>
+              <span class="tech-pill">Gemini API</span>
+              <span class="tech-pill">Supabase</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Retsu28/Cookmate-Recipe" target="_blank" rel="noopener noreferrer"
+                class="project-link">
+                GitHub Repository <i data-lucide="github" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-visuals">
+            <!-- Double Device Mockup Layout -->
+            <div class="mockup-browser">
+              <div class="browser-header">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+                <div class="browser-address">cookmatehub.click</div>
+              </div>
+              <div class="browser-screen" style="cursor: pointer;">
+                <img src="assets/images/cookmate-desktop.png" alt="CookMate Kitchen Assistant Desktop Screen">
+              </div>
+            </div>
+            <div class="mockup-phone">
+              <div class="phone-screen" style="cursor: pointer;">
+                <img src="assets/images/cookmate-mobile.png" alt="CookMate Mobile View Screen">
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: QuickyHire (Job Portal Website) -->
+        <article class="project-item">
+          <div class="project-info">
+            <div class="project-num">PROJECT 02</div>
+            <h3 class="project-title">QuickyHire</h3>
+            <p class="project-desc">
+              A robust job portal website with active employer dashboards, user authentication systems, search indexing,
+              job filters, and an optimized responsive database.
+            </p>
+            <div class="project-features-tag">
+              <span class="feature-tag">Authentication</span>
+              <span class="feature-tag">Employer Dashboard</span>
+              <span class="feature-tag">Job Search</span>
+              <span class="feature-tag">MySQL Indexing</span>
+            </div>
+            <div class="project-tech">
+              <span class="tech-pill">PHP</span>
+              <span class="tech-pill">Bootstrap</span>
+              <span class="tech-pill">MySQL</span>
+              <span class="tech-pill">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Lanczu1/Quicky_Hire" target="_blank" rel="noopener noreferrer"
+                class="project-link">
+                GitHub Repository <i data-lucide="github" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-visuals">
+            <div class="mockup-browser">
+              <div class="browser-header">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+                <div class="browser-address">quickyhire.net</div>
+              </div>
+              <div class="browser-screen" style="cursor: pointer;">
+                <img src="assets/images/quickyhire-desktop.png" alt="QuickyHire Job Portal Desktop Screen">
+              </div>
+            </div>
+            <div class="mockup-phone">
+              <div class="phone-screen" style="cursor: pointer;">
+                <img src="assets/images/quickyhire-mobile.png" alt="QuickyHire Mobile View Screen">
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: ECOBUD (Environmental Mobile Application) -->
+        <article class="project-item">
+          <div class="project-info">
+            <div class="project-num">PROJECT 03</div>
+            <h3 class="project-title">Grand Aurelia</h3>
+            <p class="project-desc">
+              A premium luxury hotel booking website featuring an elegant dark-themed UI with room & suite browsing,
+              dining, spa & wellness pages, and a full reservation system with user login and booking management.
+            </p>
+            <div class="project-features-tag">
+              <span class="feature-tag">Hotel Booking</span>
+              <span class="feature-tag">Room & Suites</span>
+              <span class="feature-tag">Spa & Wellness</span>
+              <span class="feature-tag">Dining</span>
+            </div>
+            <div class="project-tech">
+              <span class="tech-pill">HTML</span>
+              <span class="tech-pill">CSS</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">PHP</span>
+              <span class="tech-pill">MySQL</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Jechrispotato/Casa-Aurelia" target="_blank" rel="noopener noreferrer"
+                class="project-link">
+                GitHub Repository <i data-lucide="github" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-visuals single-device">
+            <div class="mockup-browser">
+              <div class="browser-bar">
+                <span class="browser-dot" style="background:#ff5f57;"></span>
+                <span class="browser-dot" style="background:#febc2e;"></span>
+                <span class="browser-dot" style="background:#28c840;"></span>
+                <span class="browser-url">grandaurelia.com</span>
+              </div>
+              <div class="browser-content">
+                <img src="assets/images/grand-aurelia.png" alt="Grand Aurelia Luxury Hotel Website"
+                  class="modal-trigger" style="width: 100%; display: block;">
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: Gaming Content & Video Editing Portfolio -->
+        <article class="project-item">
+          <div class="project-info">
+            <div class="project-num">PROJECT 04</div>
+            <h3 class="project-title">Gaming Video Content</h3>
+            <p class="project-desc">
+              Handcrafted gaming video campaigns featuring engaging hook structures, audience retention edits, motion
+              titles, and custom thumbnails. Created with professional content planning and search engine optimization.
+            </p>
+            <div class="project-features-tag">
+              <span class="feature-tag">Video Storytelling</span>
+              <span class="feature-tag">Retention Focus</span>
+              <span class="feature-tag">Thumbnail Branding</span>
+              <span class="feature-tag">Gaming Hook</span>
+            </div>
+            <div class="project-tech">
+              <span class="tech-pill">CapCut</span>
+              <span class="tech-pill">Motion Graphics</span>
+              <span class="tech-pill">Color Correction</span>
+              <span class="tech-pill">YouTube Studio</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.tiktok.com/@lanczuwr/video/7656115977515502869" target="_blank"
+                rel="noopener noreferrer" class="project-link">
+                TikTok Video <i data-lucide="play-circle" style="width: 16px; height: 16px;"></i>
+              </a>
+              <a href="https://www.youtube.com/@Lanczu2" target="_blank" rel="noopener noreferrer" class="project-link">
+                YouTube Channel <i data-lucide="youtube" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-visuals" style="display: flex; justify-content: center; align-items: center;">
+            <!-- Embedded TikTok Video -->
+            <div
+              style="width: 325px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 40px rgba(34, 197, 94, 0.15); border: 1px solid rgba(34,197,94,0.2);">
+              <iframe src="https://www.tiktok.com/embed/v2/7656115977515502869"
+                style="width: 325px; height: 580px; border: none; display: block;" allow="encrypted-media;"
+                allowfullscreen title="Gaming TikTok Video" scrolling="no">
+              </iframe>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. VIDEO EDITING SERVICE SPECIFICS -->
+    <section id="video-editing" class="container">
+      <div class="section-header">
+        <div class="section-label">Media Production</div>
+        <h2 class="section-title">Video Editing</h2>
+        <p class="section-desc">Short-form TikTok highlights, YouTube Shorts, and high-pacing Facebook Reels designed to
+          maximize retention.</p>
+      </div>
+
+      <div style="margin-top: 40px;">
+        <div
+          style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(34,197,94,0.25); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(34,197,94,0.08); position: relative;">
+          <!-- Top bar decoration -->
+          <div
+            style="background: rgba(34,197,94,0.08); border-bottom: 1px solid rgba(34,197,94,0.2); padding: 10px 20px; display: flex; align-items: center; gap: 8px;">
+            <span
+              style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; display: inline-block;"></span>
+            <span
+              style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e; display: inline-block;"></span>
+            <span
+              style="width: 12px; height: 12px; border-radius: 50%; background: #28c840; display: inline-block;"></span>
+            <span
+              style="margin-left: 10px; font-size: 0.8rem; color: rgba(255,255,255,0.5); font-family: var(--font-accent);">CapCut
+              — Video Editing Workspace</span>
+          </div>
+          <!-- The actual screenshot -->
+          <img src="assets/images/capcut-editing.png" alt="CapCut Video Editing Workspace Screenshot"
+            class="modal-trigger" style="width: 100%; display: block;">
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. WEB DEVELOPMENT SPECIFICS -->
+    <section id="web-development" class="container">
+      <div class="section-header">
+        <div class="section-label">Engineering</div>
+        <h2 class="section-title">Web Development</h2>
+        <p class="section-desc">Responsive layouts, browser platforms, and content portals supporting fluid interactive
+          flows.</p>
+      </div>
+
+      <div class="webdev-grid">
+        <!-- Card 1 -->
+        <div class="glass-card webdev-card mouse-glow-card">
+          <div class="webdev-header">
+            <h3 class="webdev-title">Portfolio Websites</h3>
+            <span class="webdev-num">01</span>
+          </div>
+          <p class="webdev-desc">Handcrafted modern agency landing pages, layout scroll triggers, and high-performance
+            preloader designs.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card webdev-card mouse-glow-card">
+          <div class="webdev-header">
+            <h3 class="webdev-title">Landing Pages</h3>
+            <span class="webdev-num">02</span>
+          </div>
+          <p class="webdev-desc">SEO-friendly promotional pages built to capture user conversions with rapid asset
+            loads.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card webdev-card mouse-glow-card">
+          <div class="webdev-header">
+            <h3 class="webdev-title">Business Websites</h3>
+            <span class="webdev-num">03</span>
+          </div>
+          <p class="webdev-desc">Custom landing systems for corporations and small-to-medium enterprises with modular
+            grid features.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-card webdev-card mouse-glow-card">
+          <div class="webdev-header">
+            <h3 class="webdev-title">Dashboard Systems</h3>
+            <span class="webdev-num">04</span>
+          </div>
+          <p class="webdev-desc">Administrative panels featuring user analytics counters, tabular reports, and search
+            filters.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="glass-card webdev-card mouse-glow-card">
+          <div class="webdev-header">
+            <h3 class="webdev-title">Database Integration</h3>
+            <span class="webdev-num">05</span>
+          </div>
+          <p class="webdev-desc">Dynamic data linking using robust PHP MySQL interfaces and Supabase cloud data APIs.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="glass-card webdev-card mouse-glow-card">
+          <div class="webdev-header">
+            <h3 class="webdev-title">Responsive Design</h3>
+            <span class="webdev-num">06</span>
+          </div>
+          <p class="webdev-desc">Mobile-first CSS queries establishing unified visual balance across phones, tablets,
+            and wide monitors.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. MOBILE DEVELOPMENT SPECIFICS -->
+    <section id="mobile-development" class="container">
+      <div class="section-header">
+        <div class="section-label">App Development</div>
+        <h2 class="section-title">Mobile Development</h2>
+        <p class="section-desc">Developing native Android layouts and unified mobile systems using React Native APIs.
+        </p>
+      </div>
+
+      <div class="mobile-dev-wrap">
+        <div class="mobile-dev-details">
+          <h3 style="font-size: 1.6rem; font-weight: 700;">React Native & Expo Ecosystem</h3>
+          <p style="color: var(--text-secondary);">
+            I leverage modern mobile ecosystems to build performance-optimized, responsive, and data-linked mobile
+            solutions for client projects.
+          </p>
+
+          <div class="mobile-features-grid">
+            <div class="mobile-feature-box">
+              <h4><i data-lucide="smartphone"></i> Android Apps</h4>
+              <p>Tailored layouts matching native Material guidelines.</p>
+            </div>
+            <div class="mobile-feature-box">
+              <h4><i data-lucide="shield-check"></i> Authentication</h4>
+              <p>Secure login forms using OAuth and Supabase providers.</p>
+            </div>
+            <div class="mobile-feature-box">
+              <h4><i data-lucide="network"></i> REST API Integration</h4>
+              <p>Parsing live server endpoints into structured app views.</p>
+            </div>
+            <div class="mobile-feature-box">
+              <h4><i data-lucide="database"></i> Supabase Back-end</h4>
+              <p>Relational tables, file storage buckets, and realtime triggers.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-dev-mockups">
+          <div class="mockup-phone secondary-phone">
+            <div class="phone-screen"
+              style="background-color: var(--bg-tertiary); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;">
+              <i data-lucide="smartphone"
+                style="width: 36px; height: 36px; color: var(--accent); margin-bottom: 12px;"></i>
+              <span style="font-family: var(--font-accent); font-size: 0.8rem; font-weight: 600;">React Native</span>
+              <p style="font-size: 0.65rem; color: var(--text-muted); margin-top: 5px;">Responsive Layout & Secure DB
+                Syncing</p>
+            </div>
+          </div>
+          <div class="mockup-phone">
+            <div class="phone-screen" style="padding: 0;">
+              <img src="assets/images/cookmate-mobile.png" alt="CookMate Mobile App"
+                style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. WORKFLOW TIMELINE SECTION -->
+    <section id="workflow" class="container">
+      <div class="section-header" style="text-align: center;">
+        <div class="section-label" style="justify-content: center;">Methodology</div>
+        <h2 class="section-title">My Workflow</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;">The sequential phase pipeline I use to
+          transition concept briefs into completed releases.</p>
+      </div>
+
+      <div class="workflow-timeline">
+
+        <!-- Step 1 -->
+        <div class="timeline-item clearfix">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-step">STEP 01</span>
+            <h3 class="timeline-title">Research</h3>
+            <p class="timeline-desc">Investigating direct client needs, analyzing competitor layouts, and checking
+              content search indices to form structured specifications.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-item clearfix">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-step">STEP 02</span>
+            <h3 class="timeline-title">Planning</h3>
+            <p class="timeline-desc">Creating wireframes, listing back-end requirements, plotting video script hooks,
+              and organizing editorial calendars.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-item clearfix">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-step">STEP 03</span>
+            <h3 class="timeline-title">Development</h3>
+            <p class="timeline-desc">Writing semantic web markup, configuring database servers, connecting device APIs,
+              and scripting core platform behaviors.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-item clearfix">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-step">STEP 04</span>
+            <h3 class="timeline-title">Editing</h3>
+            <p class="timeline-desc">Pacing raw gaming clips, layering clean sound design, adding kinetic subtitles, and
+              applying color balance profiles.</p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="timeline-item clearfix">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-step">STEP 05</span>
+            <h3 class="timeline-title">Testing</h3>
+            <p class="timeline-desc">Validating screen layouts across viewport widths, testing database API logic,
+              checking links, and tracking retention metrics.</p>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="timeline-item clearfix">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-step">STEP 06</span>
+            <h3 class="timeline-title">Publishing</h3>
+            <p class="timeline-desc">Deploying server builds to live domains, exporting video tracks, and releasing
+              short-form highlights to platforms.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10. WHY WORK WITH ME SECTION -->
+    <section id="why-work-with-me" class="container">
+      <div class="section-header">
+        <div class="section-label">Values</div>
+        <h2 class="section-title">Why Work With Me</h2>
+        <p class="section-desc">Commitment to technical quality, workflow velocity, and creative engagement.</p>
+      </div>
+
+      <div class="why-grid">
+        <!-- Card 1 -->
+        <div class="glass-card why-card mouse-glow-card">
+          <div class="why-icon"><i data-lucide="zap"></i></div>
+          <h3 class="why-title">Fast Learner</h3>
+          <p class="why-desc">Rapidly testing unknown documentation, adopting API changes, and refining software
+            versions.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card why-card mouse-glow-card">
+          <div class="why-icon"><i data-lucide="lightbulb"></i></div>
+          <h3 class="why-title">Creative Problem Solver</h3>
+          <p class="why-desc">Connecting code logic with visual design to fix layouts and drive user retention.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card why-card mouse-glow-card">
+          <div class="why-icon"><i data-lucide="eye"></i></div>
+          <h3 class="why-title">Detail-Oriented</h3>
+          <p class="why-desc">Ensuring clean indentation, zero-delay cursor hovers, responsive margins, and aligned
+            colors.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-card why-card mouse-glow-card">
+          <div class="why-icon"><i data-lucide="users"></i></div>
+          <h3 class="why-title">Team Player</h3>
+          <p class="why-desc">Maintaining open communication and sharing tasks to reach team project goals.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="glass-card why-card mouse-glow-card">
+          <div class="why-icon"><i data-lucide="award"></i></div>
+          <h3 class="why-title">Strong Work Ethic</h3>
+          <p class="why-desc">Meeting scheduled milestones, checking files, and aiming for premium production quality.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="glass-card why-card mouse-glow-card">
+          <div class="why-icon"><i data-lucide="cpu"></i></div>
+          <h3 class="why-title">Tech Passionate</h3>
+          <p class="why-desc">Constantly studying software and gaming trends to build interactive assets.</p>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="glass-card why-card mouse-glow-card">
+          <div class="why-icon"><i data-lucide="sliders"></i></div>
+          <h3 class="why-title">Adaptable to New Tools</h3>
+          <p class="why-desc">Deploying automation pipelines and utilizing AI workflows (ChatGPT, Gemini, Claude).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. CURRENTLY LEARNING SECTION -->
+    <section id="currently-learning" class="container">
+      <div class="section-header" style="text-align: center;">
+        <div class="section-label" style="justify-content: center;">Roadmap</div>
+        <h2 class="section-title">Currently Learning</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;">Expanding my technical skill set to
+          unlock more creative digital possibilities.</p>
+      </div>
+
+      <div class="roadmap-wrap">
+        <!-- Path 1 -->
+        <div class="glass-card roadmap-card mouse-glow-card">
+          <div class="roadmap-index">01</div>
+          <div class="roadmap-info">
+            <h3 class="roadmap-title">Advanced Video Editing</h3>
+            <span class="roadmap-status status-active">Active</span>
+          </div>
+        </div>
+
+        <!-- Path 2 -->
+        <div class="glass-card roadmap-card mouse-glow-card">
+          <div class="roadmap-index">02</div>
+          <div class="roadmap-info">
+            <h3 class="roadmap-title">Motion Graphics</h3>
+            <span class="roadmap-status status-active">Active</span>
+          </div>
+        </div>
+
+        <!-- Path 3 -->
+        <div class="glass-card roadmap-card mouse-glow-card">
+          <div class="roadmap-index">03</div>
+          <div class="roadmap-info">
+            <h3 class="roadmap-title">UI/UX Design Systems</h3>
+            <span class="roadmap-status status-active">Active</span>
+          </div>
+        </div>
+
+        <!-- Path 4 -->
+        <div class="glass-card roadmap-card mouse-glow-card">
+          <div class="roadmap-index">04</div>
+          <div class="roadmap-info">
+            <h3 class="roadmap-title">Content & Retention Strategy</h3>
+            <span class="roadmap-status status-active">Active</span>
+          </div>
+        </div>
+
+        <!-- Path 5 -->
+        <div class="glass-card roadmap-card mouse-glow-card">
+          <div class="roadmap-index">05</div>
+          <div class="roadmap-info">
+            <h3 class="roadmap-title">Digital Marketing Analytics</h3>
+            <span class="roadmap-status status-active">Active</span>
+          </div>
+        </div>
+
+        <!-- Path 6 -->
+        <div class="glass-card roadmap-card mouse-glow-card">
+          <div class="roadmap-index">06</div>
+          <div class="roadmap-info">
+            <h3 class="roadmap-title">AI Workflow Automation</h3>
+            <span class="roadmap-status status-active">Active</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. CERTIFICATIONS & BADGES SECTION -->
+    <section id="certifications" class="container">
+      <div class="section-header" style="text-align: center;">
+        <div class="section-label" style="justify-content: center;">Achievements</div>
+        <h2 class="section-title">Certifications & Badges</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;">Verified credentials and digital badges
+          validating my professional skills.</p>
+      </div>
+
+      <div style="display: flex; justify-content: center; padding: 20px 0 60px;">
+        <a href="https://www.credly.com/users/lance-aron-oboza/badges/credly" target="_blank" rel="noopener noreferrer"
+          style="text-decoration: none; color: inherit; display: block;">
+          <div class="glass-card mouse-glow-card"
+            style="padding: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 320px; transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div
+              style="width: 80px; height: 80px; margin-bottom: 20px; border-radius: var(--radius-full); background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(212,175,55,0.2);">
+              <i data-lucide="award" style="width: 40px; height: 40px; color: var(--accent);"></i>
+            </div>
+            <h3
+              style="font-family: var(--font-headings); font-size: 1.4rem; margin-bottom: 12px; color: var(--text-primary);">
+              Credly Badges</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">View my
+              verified digital badges and professional certifications on Credly.</p>
+
+            <div
+              style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; color: var(--accent);">
+              View Profile <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- 12. CONTACT SECTION -->
+    <section id="contact" class="container">
+      <div class="section-header">
+        <div class="section-label">Connect</div>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-desc">Have a project, job opening, or collaboration request? Send a message directly.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Cards -->
+        <div class="contact-info">
+
+          <div class="glass-card contact-card mouse-glow-card" style="cursor: pointer;"
+            onclick="copyToClipboard('lanceoboza17@gmail.com', this)">
+            <div class="contact-icon-box"><i data-lucide="mail"></i></div>
+            <div class="contact-details">
+              <h4>Email <span class="copy-feedback"
+                  style="display:none; color: #22C55E; font-size: 0.8rem; margin-left: 8px;">Copied! ✓</span></h4>
+              <p>lanceoboza17@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="glass-card contact-card mouse-glow-card" style="cursor: pointer;"
+            onclick="copyToClipboard('+639934029664', this)">
+            <div class="contact-icon-box"><i data-lucide="phone"></i></div>
+            <div class="contact-details">
+              <h4>Phone Number <span class="copy-feedback"
+                  style="display:none; color: #22C55E; font-size: 0.8rem; margin-left: 8px;">Copied! ✓</span></h4>
+              <p>+63 9934029664</p>
+            </div>
+          </div>
+
+          <div class="glass-card contact-card mouse-glow-card">
+            <div class="contact-icon-box"><i data-lucide="map-pin"></i></div>
+            <div class="contact-details">
+              <h4>Location</h4>
+              <p>Nagcarlan Laguna, Philippines</p>
+            </div>
+          </div>
+
+          <div class="contact-socials">
+            <a href="https://www.facebook.com/StreamLanceTV/" target="_blank" rel="noopener noreferrer"
+              class="social-circle" aria-label="Facebook Profile"><img src="assets/images/facebook.png" alt="Facebook"
+                style="width: 22px; height: 22px; object-fit: contain;"></a>
+            <a href="https://github.com/Lanczu1" target="_blank" rel="noopener noreferrer" class="social-circle"
+              aria-label="GitHub Profile"><img src="assets/images/github.svg" alt="GitHub"
+                style="width: 22px; height: 22px; object-fit: contain;"></a>
+            <a href="https://www.tiktok.com/@lanczuwr" target="_blank" rel="noopener noreferrer" class="social-circle"
+              aria-label="TikTok Handle"><img src="assets/images/tiktok.png" alt="TikTok"
+                style="width: 20px; height: 20px; object-fit: contain; filter: invert(1); mix-blend-mode: screen;"></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lanceoboza17@gmail.com" target="_blank"
+              rel="noopener noreferrer" class="social-circle" aria-label="Email Me"><i data-lucide="mail"></i></a>
+          </div>
+        </div>
+
+        <!-- Contact Form (Netlify Support) -->
+        <form class="contact-form" name="contact" method="POST" data-netlify="true" onsubmit="sendEmail(event)">
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form-name" class="form-label">Full Name</label>
+              <input type="text" id="form-name" name="name" class="form-input" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="form-email" class="form-label">Email Address</label>
+              <input type="email" id="form-email" name="email" class="form-input" placeholder="john@example.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="form-subject" class="form-label">Subject</label>
+            <input type="text" id="form-subject" name="subject" class="form-input" placeholder="Project Collaboration Proposal"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="form-message" class="form-label">Message</label>
+            <textarea id="form-message" name="message" class="form-input" placeholder="Hi Lance, I am interested in building..."
+              required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 10px;">
+            Send Message <i data-lucide="send" style="width: 18px; height: 18px;"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top">
+      <i data-lucide="arrow-up" style="width: 20px; height: 20px;"></i>
+    </button>
+
+    <div class="container footer-container">
+      <div class="footer-copyright">
+        &copy; 2026 Lance Aron Oboza. Aspiring Gaming Creator, Developer, & Editor. All rights reserved.
+      </div>
+
+      <div class="footer-social-wrap">
+        <a href="https://www.facebook.com/StreamLanceTV/" target="_blank" rel="noopener noreferrer"
+          class="social-circle" style="width:36px; height:36px; font-size:0.9rem;" aria-label="Facebook"><img
+            src="assets/images/facebook.png" alt="Facebook" style="width: 18px; height: 18px; object-fit: contain;"></a>
+        <a href="https://github.com/Lanczu1" target="_blank" rel="noopener noreferrer" class="social-circle"
+          style="width:36px; height:36px; font-size:0.9rem;" aria-label="GitHub"><img src="assets/images/github.svg"
+            alt="GitHub" style="width: 18px; height: 18px; object-fit: contain;"></a>
+        <a href="https://www.tiktok.com/@lanczuwr" target="_blank" rel="noopener noreferrer" class="social-circle"
+          style="width:36px; height:36px; font-size:0.9rem;" aria-label="TikTok"><img src="assets/images/tiktok.png"
+            alt="TikTok"
+            style="width: 16px; height: 16px; object-fit: contain; filter: invert(1); mix-blend-mode: screen;"></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lanceoboza17@gmail.com" target="_blank"
+          rel="noopener noreferrer" class="social-circle" style="width:36px; height:36px; font-size:0.9rem;"
+          aria-label="Email"><i data-lucide="mail"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+  <!-- Custom Application Script -->
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
