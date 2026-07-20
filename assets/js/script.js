@@ -790,7 +790,7 @@ window.copyToClipboard = function(text, element) {
       submitBtn.disabled = true;
 
       const formData = new FormData(form);
-      formData.append("access_key", "157cdebc-7525-4fd3-9496-5b433cf2f39c");
+      formData.append("access_key", "f62eb756-b6ef-417b-a599-87ee08bddde9");
       
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
