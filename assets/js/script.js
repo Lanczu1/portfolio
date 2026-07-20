@@ -777,7 +777,7 @@ window.copyToClipboard = function(text, element) {
   });
 };
 
-  // --- NETLIFY CONTACT FORM SUBMISSION ---
+  // --- WEB3FORMS CONTACT FORM SUBMISSION ---
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function(event) {
@@ -790,22 +790,19 @@ window.copyToClipboard = function(text, element) {
       submitBtn.disabled = true;
 
       const formData = new FormData(form);
-      const data = new URLSearchParams();
-      for (const pair of formData) {
-        data.append(pair[0], pair[1]);
-      }
+      formData.append("access_key", "157cdebc-7525-4fd3-9496-5b433cf2f39c");
       
-      fetch('/', {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: data.toString()
+        body: formData
       })
-      .then(response => {
-        if (response.ok) {
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status === 200) {
           alert('Message successfully sent!');
           form.reset();
         } else {
-          alert('Failed to send message. Server responded with: ' + response.status);
+          alert(json.message || 'Failed to send message.');
         }
       })
       .catch(error => {
