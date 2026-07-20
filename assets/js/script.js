@@ -787,18 +787,22 @@ window.sendEmail = function(event) {
   submitBtn.disabled = true;
 
   const formData = new FormData(form);
+  const data = new URLSearchParams();
+  for (const pair of formData) {
+    data.append(pair[0], pair[1]);
+  }
   
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(formData).toString()
+    body: data.toString()
   })
   .then(response => {
     if (response.ok) {
       alert('Message successfully sent!');
       form.reset();
     } else {
-      alert('Failed to send message.');
+      alert('Failed to send message. Server responded with: ' + response.status);
     }
   })
   .catch(error => {
