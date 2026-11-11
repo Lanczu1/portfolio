@@ -5,1236 +5,860 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO Meta Tags -->
-  <title>Lance Aron Oboza | Aspiring Gaming Content Creator, Web & Mobile Developer, Video Editor, Tech Support</title>
+  <title>Lance Aron Oboza — Web & Mobile Developer</title>
   <meta name="description"
-    content="Portfolio of Lance Aron Oboza, a Web & Mobile Developer, Video Editor, Gaming Content Creator, and Tech Support Specialist based in Laguna, Philippines. Discover modern web apps, gaming clips, and production workflows.">
+    content="Lance Aron Oboza is a web and mobile developer and BS Information Technology student at LSPU San Pablo City, with IT support training and short-form video editing experience.">
   <meta name="keywords"
-    content="Lance Aron Oboza, Web Developer, Mobile Developer, Video Editor, Gaming Content Creator, Tech Support, React Native, PHP, Expo, Supabase, Video Editing, Laguna, Philippines">
+    content="Lance Aron Oboza, Web Developer, Mobile Developer, IT Support, PHP, MySQL, JavaScript, React Native, LSPU, Laguna, Philippines">
   <meta name="author" content="Lance Aron Oboza">
+  <meta name="theme-color" content="#0d0d0b">
+  <link rel="canonical" href="https://lanceoboza.netlify.app/">
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Lance Aron Oboza | Premium Portfolio">
+  <meta property="og:url" content="https://lanceoboza.netlify.app/">
+  <meta property="og:title" content="Lance Aron Oboza — Web & Mobile Developer">
   <meta property="og:description"
-    content="Aspiring Gaming Content Creator, Web & Mobile Developer, Video Editor, and Tech Support. Creating engaging digital experiences through creativity, technology, and storytelling.">
-  <meta property="og:image" content="assets/images/profile.png">
+    content="Web and mobile developer and BS IT student. Projects, credentials and résumé.">
+  <meta property="og:image" content="https://lanceoboza.netlify.app/assets/images/profile.png">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <!-- CSS Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<body class="is-loading">
 
-  <!-- Preloader Screen -->
-  <div id="preloader" class="preloader">
-    <div class="preloader-logo">
-      <span class="preloader-letter">L</span><span class="preloader-letter">A</span><span
-        class="preloader-letter">N</span><span class="preloader-letter">C</span><span
-        class="preloader-letter">E</span><span class="preloader-letter preloader-space">&nbsp;</span><span
-        class="preloader-letter">A</span><span class="preloader-letter">R</span><span
-        class="preloader-letter">O</span><span class="preloader-letter">N</span><span
-        class="preloader-letter preloader-space">&nbsp;</span><span class="preloader-letter">O</span><span
-        class="preloader-letter">B</span><span class="preloader-letter">O</span><span
-        class="preloader-letter">Z</span><span class="preloader-letter">A</span>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V5m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M9 9h11v11H9zM5 15H4V4h11v1" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
+  </svg>
+
+  <!-- Preloader: a short slate (skipped on repeat visits) -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-row">
+        <span>Scene 01</span><span>Take 01</span><span>Roll A</span>
+      </div>
+      <div class="loader-name">Lance Aron Oboza</div>
+      <div class="loader-row">
+        <span class="loader-tc" id="loader-tc">00:00:00:00</span>
+        <span class="loader-rec"><i></i>REC</span>
+      </div>
+      <div class="loader-bar"><span id="loader-bar"></span></div>
     </div>
-    <div class="preloader-bar-wrap">
-      <div class="preloader-bar"></div>
-    </div>
-    <div class="preloader-counter">0%</div>
   </div>
 
-  <!-- Dynamic Particle Canvas Background -->
-  <div class="bg-canvas-container">
-    <canvas id="particle-canvas"></canvas>
-  </div>
-  <div class="glow-overlay"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-  <!-- Custom Interactive Cursor -->
-  <div class="custom-cursor"></div>
-  <div class="custom-cursor-dot"></div>
-
-  <!-- Scroll Progress Indicator -->
-  <div class="scroll-progress-container">
-    <div class="scroll-progress-bar"></div>
-  </div>
-
-  <!-- Header Navigation -->
-  <header class="navbar">
-    <a href="#" class="logo">
-      LANCE<span class="logo-dot"></span>
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav-logo" aria-label="Lance Aron Oboza, home">
+      <span class="nav-logo-mark">LO</span>
+      <span class="nav-logo-text">Lance Oboza</span>
     </a>
 
-    <nav class="nav-links">
-      <a href="#home">Home</a>
+    <nav class="nav-links" aria-label="Primary">
       <a href="#about">About</a>
-      <a href="#services">Services</a>
       <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#workflow">Workflow</a>
-      <a href="#currently-learning">Roadmap</a>
+      <a href="#projects">Work</a>
+      <a href="#background">Background</a>
+      <a href="#certifications">Credentials</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <div class="nav-cta">
-      <a href="#contact" class="btn btn-accent" style="padding: 8px 18px; font-size: 0.85rem;">Let's Talk</a>
+    <div class="nav-right">
+      <a href="assets/files/Lance-Aron-Oboza-Resume.pdf" class="nav-resume" target="_blank" rel="noopener">Résumé <svg class="i"><use href="#i-arrow"/></svg></a>
+      <a href="#contact" class="btn btn-sm btn-solid">Let's talk</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </div>
-
-    <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
   </header>
 
-  <!-- Mobile Dropdown Navigation Menu -->
-  <div class="mobile-menu">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#workflow">Workflow</a>
-    <a href="#currently-learning">Roadmap</a>
-    <a href="#contact">Contact</a>
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu-links">
+      <a href="#about"><small>01</small>About</a>
+      <a href="#skills"><small>02</small>Skills</a>
+      <a href="#projects"><small>03</small>Work</a>
+      <a href="#background"><small>04</small>Background</a>
+      <a href="#certifications"><small>05</small>Credentials</a>
+      <a href="#contact"><small>06</small>Contact</a>
+    </nav>
+    <div class="menu-foot">
+      <a href="assets/files/Lance-Aron-Oboza-Resume.pdf" target="_blank" rel="noopener">Download résumé (PDF)</a>
+      <span>lanceoboza17@gmail.com</span>
+    </div>
   </div>
 
   <main>
 
-    <!-- 1. HOME / HERO SECTION -->
-    <section id="home" class="hero-section">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <div class="hero-subtitle">
-            <span></span> Lance Aron Oboza
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="hero-meta">
+            <span>BS IT · LSPU San Pablo City</span>
+            <span>Class of 2027</span>
+            <span>Laguna, PH</span>
           </div>
+
           <h1 class="hero-title">
-            <span class="highlight" id="typing-text"></span>
+            <span class="line"><span>Lance Aron</span></span>
+            <span class="line"><span>Oboza<em class="hero-dot">.</em></span></span>
           </h1>
-          <p class="hero-tagline">
-            Passionate about creating engaging content, developing modern applications, and solving real-world problems
-            through technology and creativity.
+
+          <p class="hero-role">
+            <span class="hero-role-label">Web &amp; mobile developer who also does</span>
+            <span class="rotator" aria-live="polite">
+              <span class="rotator-track">
+                <span>IT support</span>
+                <span>UI design</span>
+                <span>video editing</span>
+              </span>
+            </span>
           </p>
 
-          <div class="hero-academic" style="margin: 25px 0 35px; padding-left: 16px; border-left: 3px solid var(--accent);">
-            <h3 style="color: var(--accent); font-size: 1.15rem; font-family: var(--font-headings); font-weight: 600; margin-bottom: 4px; letter-spacing: 0.5px;">Bachelor of Science in Information Technology</h3>
-            <p style="color: var(--text-primary); font-size: 0.95rem; margin-bottom: 2px;">Major in Web and Mobile Application Development</p>
-            <p style="color: var(--text-secondary); font-size: 0.9rem; font-style: italic;">Currently 4th Year Student</p>
-          </div>
+          <p class="hero-lede">
+            I build web and mobile apps with PHP, MySQL, JavaScript and React Native. I'm in my fourth year of a
+            BS in Information Technology, majoring in Web &amp; Mobile Application Development, and trained in
+            computer servicing and visual graphic design through TESDA.
+          </p>
+
           <div class="hero-ctas">
-            <a href="#projects" class="btn btn-primary">
-              View Projects <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
-            </a>
-            <a href="#contact" class="btn btn-secondary">
-              Contact Me <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
-            </a>
-            <a href="#" class="btn btn-secondary" style="border-style: dashed;">
-              Download Resume <i data-lucide="download" style="width: 18px; height: 18px;"></i>
-            </a>
+            <a href="#projects" class="btn btn-solid">See my work <svg class="i"><use href="#i-arrow"/></svg></a>
+            <a href="assets/files/Lance-Aron-Oboza-Resume.pdf" class="btn btn-line" download>Download résumé <svg class="i"><use href="#i-down"/></svg></a>
+            <a href="#contact" class="btn btn-ghost">Contact</a>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <div class="profile-sphere-wrap">
-            <div class="profile-sphere-glow"></div>
-            <div class="profile-sphere-border"></div>
-            <div class="profile-image-container">
-              <img src="assets/images/profile.png" alt="Lance Aron Oboza Profile Picture">
-            </div>
-
-            <!-- Floating Gaming Badges -->
-            <div class="floating-badge badge-1">
-              <i data-lucide="gamepad-2" style="color: var(--accent); width: 16px; height: 16px;"></i> Gaming Creator
-            </div>
-            <div class="floating-badge badge-2">
-              <i data-lucide="code-2" style="color: var(--accent); width: 16px; height: 16px;"></i> Full Stack
-            </div>
+        <!-- Camera viewfinder -->
+        <figure class="viewfinder" aria-label="Portrait of Lance Aron Oboza">
+          <div class="vf-top">
+            <span class="vf-rec"><i></i>REC</span>
+            <span class="vf-tc" id="vf-tc">00:00:00:00</span>
+            <span>1080p · 30</span>
           </div>
-        </div>
+          <div class="vf-frame">
+            <span class="vf-corner tl"></span><span class="vf-corner tr"></span>
+            <span class="vf-corner bl"></span><span class="vf-corner br"></span>
+            <span class="vf-thirds"></span>
+            <span class="vf-word" aria-hidden="true">LANCE</span>
+            <img src="assets/images/profile-cutout.png" alt="Lance Aron Oboza in a light suit" class="vf-subject">
+            <span class="vf-focus" aria-hidden="true"></span>
+          </div>
+          <figcaption class="vf-bottom">
+            <span>CAM A</span>
+            <span class="vf-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <span>Laguna, PH</span>
+          </figcaption>
+        </figure>
       </div>
+
+      <a href="#about" class="hero-scroll" aria-label="Scroll to about">
+        <span>Scroll</span><i></i>
+      </a>
     </section>
 
-    <!-- 2. ABOUT ME SECTION -->
-    <section id="about" class="container" style="padding-top: 60px; padding-bottom: 60px;">
-      <div class="section-header">
-        <div class="section-label">Identity</div>
-        <h2 class="section-title">About Me</h2>
+    <!-- Marquee -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Web Development</span><svg class="i"><use href="#i-star"/></svg>
+        <span class="o">Mobile Apps</span><svg class="i"><use href="#i-star"/></svg>
+        <span>IT Support</span><svg class="i"><use href="#i-star"/></svg>
+        <span class="o">UI / UX</span><svg class="i"><use href="#i-star"/></svg>
+        <span>Video Editing</span><svg class="i"><use href="#i-star"/></svg>
+        <span>Web Development</span><svg class="i"><use href="#i-star"/></svg>
+        <span class="o">Mobile Apps</span><svg class="i"><use href="#i-star"/></svg>
+        <span>IT Support</span><svg class="i"><use href="#i-star"/></svg>
+        <span class="o">UI / UX</span><svg class="i"><use href="#i-star"/></svg>
+        <span>Video Editing</span><svg class="i"><use href="#i-star"/></svg>
       </div>
+    </div>
 
-      <div class="about-grid">
-        <div class="about-text">
-          <p class="about-bio">
-            I am an aspiring gaming content creator, web and mobile developer, and video editor passionate about
-            creating engaging digital experiences. My interests span across gaming content creation, modern web
-            development, mobile applications, and creative video production.
-          </p>
-          <p class="about-bio" style="color: var(--text-muted);">
-            I enjoy learning new technologies, improving my editing techniques, and building projects that combine
-            creativity with technical skills. I strive to deliver high-quality work while continuously developing my
-            skills in content creation, software development, and digital marketing.
+    <!-- 01 ABOUT -->
+    <section id="about" class="section">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-idx">01</span>
+          <span class="sec-kicker">About</span>
+        </header>
+
+        <div class="about-grid">
+          <p class="about-statement split">
+            I'm a web and mobile developer finishing my IT degree, with
+            <em>hands-on IT support</em> training and a background in video editing.
           </p>
 
-          <div class="career-objective-box">
-            <h3>Career Objective</h3>
+          <div class="about-body" data-reveal>
             <p>
-              "To build a career where I can combine my creativity, technical expertise, and passion for gaming by
-              creating engaging content, developing modern applications, and contributing to innovative digital
-              projects."
+              Most of my work is full-stack web and mobile apps: a job portal, an AI meal planner, and a gamified
+              environmental app. I also handle the practical side of IT, from assembling and servicing PCs to
+              installing operating systems and setting up basic networks.
             </p>
+            <p>
+              Outside code, I edit short-form podcast and gaming videos in CapCut, which is where my eye for
+              pacing, typography and layout comes from.
+            </p>
+
+            <blockquote class="objective">
+              <span class="objective-label">Looking for</span>
+              An internship or junior role in web or mobile development, or IT support, where I can ship real
+              features and keep learning from an experienced team.
+            </blockquote>
+
+            <dl class="about-facts">
+              <div><dt>Degree</dt><dd>BS Information Technology</dd></div>
+              <div><dt>Major</dt><dd>Web &amp; Mobile App Development</dd></div>
+              <div><dt>School</dt><dd>LSPU – San Pablo City Campus</dd></div>
+              <div><dt>Graduating</dt><dd>2027</dd></div>
+              <div><dt>Based in</dt><dd>Nagcarlan, Laguna</dd></div>
+              <div><dt>Languages</dt><dd>Filipino, English</dd></div>
+            </dl>
           </div>
         </div>
-
-
       </div>
     </section>
 
-    <!-- 3. SERVICES SECTION -->
-    <section id="services" class="container">
-      <div class="section-header">
-        <div class="section-label">Expertise</div>
-        <h2 class="section-title">My Services</h2>
-        <p class="section-desc">Delivering high-value solutions across development, design, and content production
-          pipelines.</p>
-      </div>
+    <!-- 02 SKILLS (services folded in) -->
+    <section id="skills" class="section">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-idx">02</span>
+          <span class="sec-kicker">Skills</span>
+          <h2 class="sec-title split">What I can <em>help with</em></h2>
+        </header>
 
-      <div class="services-grid">
-        <!-- Service 1: Gaming Content Creation -->
-        <div class="glass-card service-card mouse-glow-card">
-          <div style="margin-bottom: 25px;">
-            <div class="service-icon">
-              <i data-lucide="gamepad-2"></i>
-            </div>
-            <h3 class="service-title" style="color: #ffffff;">Gaming Content Creation</h3>
-            <p style="color: #ffffff; font-size: 1rem; line-height: 1.6;">Create engaging gaming content designed to
-              entertain, grow communities, and increase audience engagement across modern digital platforms.</p>
-          </div>
-          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-            <div
-              style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 15px; color: #22C55E; font-weight: 700;">
-              What I Offer</div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; color: #ffffff;">
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Gaming Video Editing</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> YouTube Shorts</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> TikTok Content</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Thumbnail Design</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Content Planning</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> SEO Basics</li>
+        <div class="services">
+          <article class="service" data-reveal>
+            <div class="service-top"><span class="service-no">S/01</span><span class="service-tag">Main focus</span></div>
+            <h3>Web &amp; Mobile Development</h3>
+            <p>Responsive websites and cross-platform apps with real databases, authentication and APIs behind them.</p>
+            <ul>
+              <li>Full-stack web apps</li><li>Mobile apps</li><li>Login &amp; user accounts</li>
+              <li>REST API integration</li><li>Database design</li><li>QA testing</li>
             </ul>
-          </div>
-        </div>
+          </article>
 
-        <!-- Service 2: Web & Mobile Development -->
-        <div class="glass-card service-card mouse-glow-card">
-          <div style="margin-bottom: 25px;">
-            <div class="service-icon">
-              <i data-lucide="monitor-smartphone"></i>
-            </div>
-            <h3 class="service-title" style="color: #ffffff;">Web & Mobile Development</h3>
-            <p style="color: #ffffff; font-size: 1rem; line-height: 1.6;">Build responsive, scalable, and user-friendly
-              websites and mobile applications with clean code and modern technologies.</p>
-          </div>
-          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-            <div
-              style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 15px; color: #22C55E; font-weight: 700;">
-              What I Offer</div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; color: #ffffff;">
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Portfolio Websites</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Business Websites</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Landing Pages</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Mobile Applications</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> REST API Integration</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Database Management</li>
+          <article class="service" data-reveal>
+            <div class="service-top"><span class="service-no">S/02</span><span class="service-tag">TESDA trained</span></div>
+            <h3>IT Support &amp; Hardware</h3>
+            <p>Computer servicing from the hardware up, trained through TESDA Computer System Servicing NC II.</p>
+            <ul>
+              <li>PC assembly</li><li>Hardware installation</li><li>OS install &amp; setup</li>
+              <li>Troubleshooting</li><li>PC maintenance</li><li>Basic networking</li>
             </ul>
-          </div>
-        </div>
+          </article>
 
-        <!-- Service 3: Video Editing -->
-        <div class="glass-card service-card mouse-glow-card">
-          <div style="margin-bottom: 25px;">
-            <div class="service-icon">
-              <i data-lucide="film"></i>
-            </div>
-            <h3 class="service-title" style="color: #ffffff;">Video Editing</h3>
-            <p style="color: #ffffff; font-size: 1rem; line-height: 1.6;">Produce high-quality videos with smooth
-              pacing, cinematic transitions, subtitles, and motion graphics tailored for social media and digital
-              platforms.</p>
-          </div>
-          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-            <div
-              style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 15px; color: #22C55E; font-weight: 700;">
-              What I Offer</div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; color: #ffffff;">
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Gaming Videos</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> YouTube Videos</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Shorts & Reels</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Motion Graphics</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Captions & Subtitles</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Color Correction</li>
+          <article class="service" data-reveal>
+            <div class="service-top"><span class="service-no">S/03</span><span class="service-tag">Design</span></div>
+            <h3>UI/UX &amp; Graphic Design</h3>
+            <p>Interfaces and visuals planned in Figma, backed by IBM UX training and TESDA Visual Graphic Design NC III.</p>
+            <ul>
+              <li>Wireframes</li><li>UI design</li><li>Design thinking</li>
+              <li>Typography</li><li>Social graphics</li><li>Promo assets</li>
             </ul>
-          </div>
-        </div>
+          </article>
 
-        <!-- Service 4: Technical Support -->
-        <div class="glass-card service-card mouse-glow-card">
-          <div style="margin-bottom: 25px;">
-            <div class="service-icon">
-              <i data-lucide="wrench"></i>
-            </div>
-            <h3 class="service-title" style="color: #ffffff;">Technical Support</h3>
-            <p style="color: #ffffff; font-size: 1rem; line-height: 1.6;">Provide reliable technical assistance for
-              software, hardware, development environments, and system troubleshooting.</p>
-          </div>
-          <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-            <div
-              style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 15px; color: #22C55E; font-weight: 700;">
-              What I Offer</div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; color: #ffffff;">
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> PC Troubleshooting</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Software Installation</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Development Environment Setup
-              </li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Git & VS Code Configuration
-              </li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Performance Optimization</li>
-              <li style="margin-bottom: 10px; display: flex; align-items: center;"><span
-                  style="color: #22C55E; font-weight: bold; margin-right: 10px;">✓</span> Basic Networking</li>
+          <article class="service" data-reveal>
+            <div class="service-top"><span class="service-no">S/04</span><span class="service-tag">Content</span></div>
+            <h3>Video Editing</h3>
+            <p>Short-form podcast and gaming clips cut for retention: strong hooks, tight pacing and clear text.</p>
+            <ul>
+              <li>Shorts &amp; Reels</li><li>Hooks &amp; pacing</li><li>Captions</li>
+              <li>B-roll</li><li>Motion graphics</li><li>Color correction</li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. SKILLS & TECH STACK SECTION -->
-    <section id="skills" class="container">
-      <div class="section-header">
-        <div class="section-label">Competency</div>
-        <h2 class="section-title">Skills & Tech Stack</h2>
-        <p class="section-desc">The languages, tools, frameworks, and content execution methods I use to build projects.
-        </p>
-      </div>
-
-      <div class="skills-layout">
-        <!-- Tech Stack List -->
-        <div>
-          <h3 style="font-family: var(--font-accent); font-size: 1.25rem; margin-bottom: 25px; color: var(--accent);">
-            Development Tools</h3>
-          <div class="tech-grid">
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="code" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">HTML5</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><img src="assets/images/css-3.png" alt="CSS3"
-                  style="width: 28px; height: 28px; object-fit: contain;"></div>
-              <span class="tech-name">CSS3</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="braces" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">JavaScript</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="database" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">PHP</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="layout-grid" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">Bootstrap</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="server" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">MySQL</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="smartphone" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">React Native</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="box" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">Expo</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="cloud" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">Supabase</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="terminal" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">VS Code</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="git-branch" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">Git</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><img src="assets/images/github.svg" alt="GitHub"
-                  style="width: 28px; height: 28px; object-fit: contain;"></div>
-              <span class="tech-name">GitHub</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="send" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">Postman</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><img src="assets/images/figma.png" alt="Figma"
-                  style="width: 28px; height: 28px; object-fit: contain;"></div>
-              <span class="tech-name">Figma</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="image" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">Canva</span>
-            </div>
-            <div class="tech-card">
-              <div class="tech-logo-wrap"><i data-lucide="cpu" style="width: 28px; height: 28px;"></i></div>
-              <span class="tech-name">AI Tools</span>
-            </div>
-          </div>
+          </article>
         </div>
 
-        <!-- Content Creation & Video Progress Bars -->
-        <div>
-          <h3 style="font-family: var(--font-accent); font-size: 1.25rem; margin-bottom: 25px; color: var(--accent);">
-            Content Production Competency</h3>
-          <div class="progress-list">
-            <!-- Video Editing -->
-            <div class="progress-item-wrap">
-              <div class="progress-header">
-                <span class="progress-name"><i data-lucide="video" style="width:16px; height:16px;"></i> Video Editing
-                  (CapCut)</span>
-                <span class="progress-val">80%</span>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" data-progress="80%"></div>
-              </div>
+        <div class="toolkit">
+          <h3 class="sub-label">Tools &amp; technologies <span>levels as listed on my résumé</span></h3>
+          <div class="toolkit-grid">
+            <div class="tk-group tk-strong" data-reveal>
+              <h4>Intermediate</h4>
+              <ul class="tk-list">
+                <li>HTML / CSS</li><li>JavaScript</li><li>MySQL</li>
+              </ul>
             </div>
-
-            <!-- Gaming Content Planning -->
-            <div class="progress-item-wrap">
-              <div class="progress-header">
-                <span class="progress-name"><i data-lucide="calendar" style="width:16px; height:16px;"></i> Gaming
-                  Content Planning</span>
-                <span class="progress-val">70%</span>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" data-progress="70%"></div>
-              </div>
+            <div class="tk-group" data-reveal>
+              <h4>Familiar</h4>
+              <ul class="tk-list">
+                <li>PHP (Laravel)</li><li>Python</li><li>React Native</li><li>Expo</li><li>Supabase</li>
+                <li>Git / GitHub</li><li>XAMPP</li><li>Postman</li><li>Figma</li>
+                <li>TensorFlow</li><li>scikit-learn</li><li>AWS EC2</li><li>Nginx</li><li>Cloudflare</li>
+              </ul>
             </div>
-
-            <!-- Short-form Video -->
-            <div class="progress-item-wrap">
-              <div class="progress-header">
-                <span class="progress-name"><i data-lucide="play" style="width:16px; height:16px;"></i> Short-form Video
-                  Production</span>
-                <span class="progress-val">70%</span>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" data-progress="70%"></div>
-              </div>
-            </div>
-
-            <!-- Tech Support -->
-            <div class="progress-item-wrap">
-              <div class="progress-header">
-                <span class="progress-name"><i data-lucide="wrench" style="width:16px; height:16px;"></i> Tech
-                  Support</span>
-                <span class="progress-val">90%</span>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" data-progress="90%"></div>
-              </div>
-            </div>
-
-            <!-- Thumbnail & SEO -->
-            <div class="progress-item-wrap">
-              <div class="progress-header">
-                <span class="progress-name"><i data-lucide="palette" style="width:16px; height:16px;"></i> Thumbnail
-                  Design & SEO Basics</span>
-                <span class="progress-val">50%</span>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" data-progress="50%"></div>
-              </div>
-            </div>
-
-            <!-- Motion & Subtitle -->
-            <div class="progress-item-wrap">
-              <div class="progress-header">
-                <span class="progress-name"><i data-lucide="activity" style="width:16px; height:16px;"></i> Motion
-                  Graphics & Subtitles</span>
-                <span class="progress-val">50%</span>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill" data-progress="50%"></div>
-              </div>
+            <div class="tk-group" data-reveal>
+              <h4>Media</h4>
+              <ul class="tk-list">
+                <li>CapCut</li><li>Motion graphics</li><li>Typography</li><li>Canva</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. FEATURED PROJECTS SECTION -->
-    <section id="projects" class="container">
-      <div class="section-header">
-        <div class="section-label">Case Studies</div>
-        <h2 class="section-title">Featured Projects</h2>
-        <p class="section-desc">Handcrafted web applications, mobile tools, and content campaigns designed to solve real
-          problems.</p>
-      </div>
+    <!-- 03 PROJECTS -->
+    <section id="projects" class="section">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-idx">03</span>
+          <span class="sec-kicker">Selected work</span>
+          <h2 class="sec-title split">Things I've <em>built</em></h2>
+        </header>
 
-      <div class="projects-list">
+        <div class="projects">
 
-        <!-- Project 1: CookMate (AI Cooking Assistant & Meal Planner) -->
-        <article class="project-item">
-          <div class="project-info">
-            <div class="project-num" style="display: flex; justify-content: space-between; align-items: center;">
-              <span>PROJECT 01</span>
-              <span style="font-size: 0.75rem; color: var(--accent); background: rgba(34, 197, 94, 0.1); padding: 4px 10px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px;">Developer</span>
+          <article class="project">
+            <div class="project-bar">
+              <span class="project-no">01</span>
+              <span class="project-kind">Cross-platform app · AI · 2026</span>
+              <span class="project-role">Developer</span>
             </div>
-            <h3 class="project-title">CookMate Kitchen</h3>
-            <p class="project-desc">
-              A premium recipes, pantry-scanning, and AI-driven meal planner application. Features custom recipe
-              downloads, intelligent AI chat cooking advice, scan tools, and beautiful responsive layouts.
-            </p>
-            <div class="project-features-tag">
-              <span class="feature-tag">Scan Pantry</span>
-              <span class="feature-tag">AI Assistant</span>
-              <span class="feature-tag">Meal Planner</span>
-              <span class="feature-tag">Recipe Directory</span>
-            </div>
-            <div class="project-tech">
-              <span class="tech-pill">React</span>
-              <span class="tech-pill">NodeJS</span>
-              <span class="tech-pill">TailwindCSS</span>
-              <span class="tech-pill">Gemini API</span>
-              <span class="tech-pill">Supabase</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Retsu28/Cookmate-Recipe" target="_blank" rel="noopener noreferrer"
-                class="project-link">
-                GitHub Repository <i data-lucide="github" style="width: 16px; height: 16px;"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="project-visuals">
-            <!-- Double Device Mockup Layout -->
-            <div class="mockup-browser">
-              <div class="browser-header">
-                <span class="browser-dot red"></span>
-                <span class="browser-dot yellow"></span>
-                <span class="browser-dot green"></span>
-                <div class="browser-address">cookmatehub.click</div>
+            <div class="project-body">
+              <div class="project-info">
+                <h3 class="project-title">CookMate</h3>
+                <p>
+                  An AI-driven recipe and meal planning app that takes the guesswork out of daily cooking and
+                  dietary decisions.
+                </p>
+                <h4 class="did-label">What I built</h4>
+                <ul class="did">
+                  <li>Personalized recipe recommendations using the Gemini API</li>
+                  <li>Automated weekly meal planning</li>
+                  <li>Ingredient and grocery tracking with pantry scanning</li>
+                  <li>Offline access and push-notification meal reminders</li>
+                </ul>
+                <ul class="tech"><li>React</li><li>Node.js</li><li>Tailwind CSS</li><li>Gemini API</li><li>Supabase</li></ul>
+                <a href="https://github.com/Retsu28/Cookmate-Recipe" target="_blank" rel="noopener noreferrer" class="link-arrow">View on GitHub <svg class="i"><use href="#i-arrow"/></svg></a>
               </div>
-              <div class="browser-screen" style="cursor: pointer;">
-                <img src="assets/images/cookmate-desktop.png" alt="CookMate Kitchen Assistant Desktop Screen">
+              <div class="project-media">
+                <div class="device-browser">
+                  <div class="db-bar"><i></i><i></i><i></i><span>cookmatehub.click</span></div>
+                  <img src="assets/images/cookmate-desktop.png" alt="CookMate desktop screen" class="zoomable" loading="lazy">
+                </div>
+                <div class="device-phone">
+                  <img src="assets/images/cookmate-mobile.png" alt="CookMate mobile screen" class="zoomable" loading="lazy">
+                </div>
               </div>
             </div>
-            <div class="mockup-phone">
-              <div class="phone-screen" style="cursor: pointer;">
-                <img src="assets/images/cookmate-mobile.png" alt="CookMate Mobile View Screen">
+          </article>
+
+          <article class="project">
+            <div class="project-bar">
+              <span class="project-no">02</span>
+              <span class="project-kind">Web app · Recruitment · 2025</span>
+              <span class="project-role">Developer</span>
+            </div>
+            <div class="project-body">
+              <div class="project-info">
+                <h3 class="project-title">QuickyHire</h3>
+                <p>
+                  A web-based job portal that connects job seekers with openings and makes the recruitment process
+                  simpler for both sides.
+                </p>
+                <h4 class="did-label">What I built</h4>
+                <ul class="did">
+                  <li>Job browsing and detailed job pages</li>
+                  <li>Company profiles to explore employers</li>
+                  <li>User registration and login</li>
+                  <li>Responsive layout for desktop and mobile</li>
+                </ul>
+                <ul class="tech"><li>PHP</li><li>MySQL</li><li>Bootstrap</li><li>JavaScript</li></ul>
+                <a href="https://github.com/Lanczu1/Quicky_Hire" target="_blank" rel="noopener noreferrer" class="link-arrow">View on GitHub <svg class="i"><use href="#i-arrow"/></svg></a>
+              </div>
+              <div class="project-media">
+                <div class="device-browser">
+                  <div class="db-bar"><i></i><i></i><i></i><span>quickyhire.net</span></div>
+                  <img src="assets/images/quickyhire-desktop.png" alt="QuickyHire desktop screen" class="zoomable" loading="lazy">
+                </div>
+                <div class="device-phone">
+                  <img src="assets/images/quickyhire-mobile.png" alt="QuickyHire mobile screen" class="zoomable" loading="lazy">
+                </div>
               </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Project 2: QuickyHire (Job Portal Website) -->
-        <article class="project-item">
-          <div class="project-info">
-            <div class="project-num" style="display: flex; justify-content: space-between; align-items: center;">
-              <span>PROJECT 02</span>
-              <span style="font-size: 0.75rem; color: var(--accent); background: rgba(34, 197, 94, 0.1); padding: 4px 10px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px;">Developer</span>
+          <article class="project">
+            <div class="project-bar">
+              <span class="project-no">03</span>
+              <span class="project-kind">Website · Hospitality</span>
+              <span class="project-role">Co-developer</span>
             </div>
-            <h3 class="project-title">QuickyHire</h3>
-            <p class="project-desc">
-              A robust job portal website with active employer dashboards, user authentication systems, search indexing,
-              job filters, and an optimized responsive database.
-            </p>
-            <div class="project-features-tag">
-              <span class="feature-tag">Authentication</span>
-              <span class="feature-tag">Employer Dashboard</span>
-              <span class="feature-tag">Job Search</span>
-              <span class="feature-tag">MySQL Indexing</span>
-            </div>
-            <div class="project-tech">
-              <span class="tech-pill">PHP</span>
-              <span class="tech-pill">Bootstrap</span>
-              <span class="tech-pill">MySQL</span>
-              <span class="tech-pill">JavaScript</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Lanczu1/Quicky_Hire" target="_blank" rel="noopener noreferrer"
-                class="project-link">
-                GitHub Repository <i data-lucide="github" style="width: 16px; height: 16px;"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="project-visuals">
-            <div class="mockup-browser">
-              <div class="browser-header">
-                <span class="browser-dot red"></span>
-                <span class="browser-dot yellow"></span>
-                <span class="browser-dot green"></span>
-                <div class="browser-address">quickyhire.net</div>
+            <div class="project-body">
+              <div class="project-info">
+                <h3 class="project-title">Grand Aurelia</h3>
+                <p>
+                  A luxury hotel booking website with a dark, elegant UI: rooms and suites, dining, spa and wellness
+                  pages, plus reservations tied to user accounts.
+                </p>
+                <h4 class="did-label">Features</h4>
+                <ul class="did">
+                  <li>Room and suite browsing</li>
+                  <li>Reservation system with booking management</li>
+                  <li>User login</li>
+                  <li>Dining and spa &amp; wellness pages</li>
+                </ul>
+                <ul class="tech"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li></ul>
+                <a href="https://github.com/Jechrispotato/Casa-Aurelia" target="_blank" rel="noopener noreferrer" class="link-arrow">View on GitHub <svg class="i"><use href="#i-arrow"/></svg></a>
               </div>
-              <div class="browser-screen" style="cursor: pointer;">
-                <img src="assets/images/quickyhire-desktop.png" alt="QuickyHire Job Portal Desktop Screen">
+              <div class="project-media single">
+                <div class="device-browser">
+                  <div class="db-bar"><i></i><i></i><i></i><span>grandaurelia.com</span></div>
+                  <img src="assets/images/grand-aurelia.png" alt="Grand Aurelia hotel website" class="zoomable" loading="lazy">
+                </div>
               </div>
             </div>
-            <div class="mockup-phone">
-              <div class="phone-screen" style="cursor: pointer;">
-                <img src="assets/images/quickyhire-mobile.png" alt="QuickyHire Mobile View Screen">
+          </article>
+
+          <article class="project">
+            <div class="project-bar">
+              <span class="project-no">04</span>
+              <span class="project-kind">Video · Podcast &amp; gaming · 2026</span>
+              <span class="project-role">Editor</span>
+            </div>
+            <div class="project-body">
+              <div class="project-info">
+                <h3 class="project-title">Short-form Video</h3>
+                <p>
+                  Vertical podcast and gaming clips edited in CapCut for TikTok, YouTube Shorts and Facebook Reels,
+                  built to keep people watching past the first seconds.
+                </p>
+                <h4 class="did-label">What I did</h4>
+                <ul class="did">
+                  <li>Hooks and pacing tuned for retention</li>
+                  <li>Typography, captions, B-roll and motion graphics</li>
+                  <li>Visual concepts and promotional assets for each post</li>
+                </ul>
+                <ul class="tech"><li>CapCut</li><li>Motion graphics</li><li>Typography</li><li>Color correction</li></ul>
+                <div class="link-row">
+                  <a href="https://www.tiktok.com/@lanczuwr/video/7656115977515502869" target="_blank" rel="noopener noreferrer" class="link-arrow">Watch on TikTok <svg class="i"><use href="#i-arrow"/></svg></a>
+                  <a href="https://www.youtube.com/@Lanczu2" target="_blank" rel="noopener noreferrer" class="link-arrow">YouTube channel <svg class="i"><use href="#i-arrow"/></svg></a>
+                </div>
+              </div>
+              <div class="project-media video">
+                <div class="tiktok-frame">
+                  <iframe src="https://www.tiktok.com/embed/v2/7656115977515502869" allow="encrypted-media;"
+                    allowfullscreen title="TikTok video edited by Lance" scrolling="no" loading="lazy"></iframe>
+                </div>
               </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Project 3: ECOBUD (Environmental Mobile Application) -->
-        <article class="project-item">
-          <div class="project-info">
-            <div class="project-num" style="display: flex; justify-content: space-between; align-items: center;">
-              <span>PROJECT 03</span>
-              <span style="font-size: 0.75rem; color: var(--accent); background: rgba(34, 197, 94, 0.1); padding: 4px 10px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px;">Co-Developer</span>
+          <article class="project project-text" data-reveal>
+            <div class="project-bar">
+              <span class="project-no">05</span>
+              <span class="project-kind">Mobile app · AI · Gamified · 2026</span>
+              <span class="project-role">Developer</span>
             </div>
-            <h3 class="project-title">Grand Aurelia</h3>
-            <p class="project-desc">
-              A premium luxury hotel booking website featuring an elegant dark-themed UI with room & suite browsing,
-              dining, spa & wellness pages, and a full reservation system with user login and booking management.
-            </p>
-            <div class="project-features-tag">
-              <span class="feature-tag">Hotel Booking</span>
-              <span class="feature-tag">Room & Suites</span>
-              <span class="feature-tag">Spa & Wellness</span>
-              <span class="feature-tag">Dining</span>
-            </div>
-            <div class="project-tech">
-              <span class="tech-pill">HTML</span>
-              <span class="tech-pill">CSS</span>
-              <span class="tech-pill">JavaScript</span>
-              <span class="tech-pill">PHP</span>
-              <span class="tech-pill">MySQL</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Jechrispotato/Casa-Aurelia" target="_blank" rel="noopener noreferrer"
-                class="project-link">
-                GitHub Repository <i data-lucide="github" style="width: 16px; height: 16px;"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="project-visuals single-device">
-            <div class="mockup-browser">
-              <div class="browser-bar">
-                <span class="browser-dot" style="background:#ff5f57;"></span>
-                <span class="browser-dot" style="background:#febc2e;"></span>
-                <span class="browser-dot" style="background:#28c840;"></span>
-                <span class="browser-url">grandaurelia.com</span>
-              </div>
-              <div class="browser-content">
-                <img src="assets/images/grand-aurelia.png" alt="Grand Aurelia Luxury Hotel Website"
-                  class="modal-trigger" style="width: 100%; display: block;">
+            <div class="project-text-body">
+              <h3 class="project-title">EcoBud</h3>
+              <div>
+                <p>
+                  An AI-assisted, gamified mobile app that raises awareness of solid waste management among residents:
+                  proper disposal, segregation and environmentally responsible habits.
+                </p>
+                <h4 class="did-label">What I built</h4>
+                <ul class="did">
+                  <li>Waste classification and recognition</li>
+                  <li>Environmental education content</li>
+                  <li>Community events and gamified challenges</li>
+                  <li>Points and rewards for taking part</li>
+                </ul>
               </div>
             </div>
-          </div>
-        </article>
-
-        <!-- Project 4: Gaming Content & Video Editing Portfolio -->
-        <article class="project-item">
-          <div class="project-info">
-            <div class="project-num">PROJECT 04</div>
-            <h3 class="project-title">Gaming Video Content</h3>
-            <p class="project-desc">
-              Handcrafted gaming video campaigns featuring engaging hook structures, audience retention edits, motion
-              titles, and custom thumbnails. Created with professional content planning and search engine optimization.
-            </p>
-            <div class="project-features-tag">
-              <span class="feature-tag">Video Storytelling</span>
-              <span class="feature-tag">Retention Focus</span>
-              <span class="feature-tag">Thumbnail Branding</span>
-              <span class="feature-tag">Gaming Hook</span>
-            </div>
-            <div class="project-tech">
-              <span class="tech-pill">CapCut</span>
-              <span class="tech-pill">Motion Graphics</span>
-              <span class="tech-pill">Color Correction</span>
-              <span class="tech-pill">YouTube Studio</span>
-            </div>
-            <div class="project-links">
-              <a href="https://www.tiktok.com/@lanczuwr/video/7656115977515502869" target="_blank"
-                rel="noopener noreferrer" class="project-link">
-                TikTok Video <i data-lucide="play-circle" style="width: 16px; height: 16px;"></i>
-              </a>
-              <a href="https://www.youtube.com/@Lanczu2" target="_blank" rel="noopener noreferrer" class="project-link">
-                YouTube Channel <i data-lucide="youtube" style="width: 16px; height: 16px;"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="project-visuals" style="display: flex; justify-content: center; align-items: center;">
-            <!-- Embedded TikTok Video -->
-            <div
-              style="width: 325px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 40px rgba(34, 197, 94, 0.15); border: 1px solid rgba(34,197,94,0.2);">
-              <iframe src="https://www.tiktok.com/embed/v2/7656115977515502869"
-                style="width: 325px; height: 580px; border: none; display: block;" allow="encrypted-media;"
-                allowfullscreen title="Gaming TikTok Video" scrolling="no">
-              </iframe>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- 6. VIDEO EDITING SERVICE SPECIFICS -->
-    <section id="video-editing" class="container">
-      <div class="section-header">
-        <div class="section-label">Media Production</div>
-        <h2 class="section-title">Video Editing</h2>
-        <p class="section-desc">Short-form TikTok highlights, YouTube Shorts, and high-pacing Facebook Reels designed to
-          maximize retention.</p>
-      </div>
-
-      <div style="margin-top: 40px;">
-        <div
-          style="border-radius: 16px; overflow: hidden; border: 1px solid rgba(34,197,94,0.25); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(34,197,94,0.08); position: relative;">
-          <!-- Top bar decoration -->
-          <div
-            style="background: rgba(34,197,94,0.08); border-bottom: 1px solid rgba(34,197,94,0.2); padding: 10px 20px; display: flex; align-items: center; gap: 8px;">
-            <span
-              style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; display: inline-block;"></span>
-            <span
-              style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e; display: inline-block;"></span>
-            <span
-              style="width: 12px; height: 12px; border-radius: 50%; background: #28c840; display: inline-block;"></span>
-            <span
-              style="margin-left: 10px; font-size: 0.8rem; color: rgba(255,255,255,0.5); font-family: var(--font-accent);">CapCut
-              — Video Editing Workspace</span>
-          </div>
-          <!-- The actual screenshot -->
-          <img src="assets/images/capcut-editing.png" alt="CapCut Video Editing Workspace Screenshot"
-            class="modal-trigger" style="width: 100%; display: block;">
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- 7. WEB DEVELOPMENT SPECIFICS -->
-    <section id="web-development" class="container">
-      <div class="section-header">
-        <div class="section-label">Engineering</div>
-        <h2 class="section-title">Web Development</h2>
-        <p class="section-desc">Responsive layouts, browser platforms, and content portals supporting fluid interactive
-          flows.</p>
+    <!-- 04 VIDEO EDITING -->
+    <section id="video-editing" class="section">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-idx">04</span>
+          <span class="sec-kicker">In the edit</span>
+          <h2 class="sec-title split">Where the <em>cutting</em> happens</h2>
+        </header>
+
+        <div class="monitor" data-reveal>
+          <div class="monitor-bar">
+            <span class="vf-rec"><i></i>Program</span>
+            <span>CapCut workspace</span>
+            <span class="monitor-tc" id="monitor-tc">00:00:00:00</span>
+          </div>
+          <img src="assets/images/capcut-editing.png" alt="CapCut video editing workspace" class="zoomable" loading="lazy">
+          <div class="monitor-ruler" aria-hidden="true"></div>
+        </div>
+        <ul class="monitor-notes">
+          <li><b>Hooks</b> &amp; pacing</li>
+          <li><b>Typography</b> &amp; captions</li>
+          <li><b>B-roll</b> &amp; motion</li>
+          <li><b>Vertical</b> 9:16 delivery</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 WORKFLOW: edit timeline -->
+    <section id="workflow" class="section">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-idx">05</span>
+          <span class="sec-kicker">Process</span>
+          <h2 class="sec-title split">From brief to <em>published</em></h2>
+        </header>
       </div>
 
-      <div class="webdev-grid">
-        <!-- Card 1 -->
-        <div class="glass-card webdev-card mouse-glow-card">
-          <div class="webdev-header">
-            <h3 class="webdev-title">Portfolio Websites</h3>
-            <span class="webdev-num">01</span>
+      <div class="timeline-pin" id="timeline-pin">
+        <div class="wrap">
+          <div class="timeline" id="timeline">
+            <div class="tl-ruler" aria-hidden="true">
+              <span>00:00</span><span>00:10</span><span>00:20</span><span>00:30</span><span>00:40</span><span>00:50</span>
+            </div>
+            <div class="tl-tracks">
+              <div class="tl-track-label" aria-hidden="true"><span>V1</span><span>A1</span></div>
+              <ol class="tl-clips">
+                <li class="tl-clip"><span class="tl-step">01</span><h3>Research</h3><p>Understanding what users need and looking at how others have solved it.</p></li>
+                <li class="tl-clip"><span class="tl-step">02</span><h3>Planning</h3><p>Wireframes in Figma, database design and a feature list.</p></li>
+                <li class="tl-clip"><span class="tl-step">03</span><h3>Development</h3><p>Building the front end, back end and API connections.</p></li>
+                <li class="tl-clip"><span class="tl-step">04</span><h3>Polish</h3><p>Typography, spacing, motion and copy, the same care I put into an edit.</p></li>
+                <li class="tl-clip"><span class="tl-step">05</span><h3>Testing</h3><p>QA across screen sizes, user flows, forms and links.</p></li>
+                <li class="tl-clip"><span class="tl-step">06</span><h3>Release</h3><p>Deploying, then fixing what real use turns up.</p></li>
+              </ol>
+              <div class="tl-wave" aria-hidden="true"></div>
+              <div class="tl-playhead" aria-hidden="true"><span id="tl-tc">00:00</span></div>
+            </div>
           </div>
-          <p class="webdev-desc">Handcrafted modern agency landing pages, layout scroll triggers, and high-performance
-            preloader designs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 BACKGROUND: education + training -->
+    <section id="background" class="section">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-idx">06</span>
+          <span class="sec-kicker">Background</span>
+          <h2 class="sec-title split">Education &amp; <em>training</em></h2>
+        </header>
+
+        <div class="bg-grid">
+          <article class="edu" data-reveal>
+            <div class="edu-top"><span>Education</span><span>Expected 2027</span></div>
+            <h3>Laguna State Polytechnic University</h3>
+            <p class="edu-sub">San Pablo City Campus</p>
+            <p class="edu-degree">BS Information Technology<br><span>Major in Web &amp; Mobile Application Development</span></p>
+            <h4 class="did-label">Relevant coursework</h4>
+            <ul class="tech">
+              <li>Web &amp; Mobile App Development</li><li>Database Systems</li><li>Software Engineering</li>
+              <li>Data Structures &amp; Algorithms</li><li>Machine Learning</li><li>UX/UI Design</li><li>Information Security</li>
+            </ul>
+          </article>
+
+          <ol class="log" data-stagger>
+            <li>
+              <span class="log-year">2025</span>
+              <div>
+                <h3>TESDA Computer System Servicing NC II</h3>
+                <p class="log-org">National Certificate II training · LSPU-SPCC</p>
+                <p>Hardware servicing, installation, configuration, troubleshooting and basic network setup.</p>
+              </div>
+            </li>
+            <li>
+              <span class="log-year">2024</span>
+              <div>
+                <h3>TESDA Visual Graphic Design NC III</h3>
+                <p class="log-org">National Certificate III training · LSPU-SPCC</p>
+                <p>Design principles, digital graphics and graphic design production.</p>
+              </div>
+            </li>
+            <li>
+              <span class="log-year">2023</span>
+              <div>
+                <h3>ASEAN Data Science Explorers Enablement</h3>
+                <p class="log-org">Data science training · Plaridel Integrated National High School</p>
+                <p>Intro to data analytics, building a first model and data story, and drilling into regional ASEAN datasets.</p>
+              </div>
+            </li>
+            <li>
+              <span class="log-year">2023</span>
+              <div>
+                <h3>15th EdukCircle International Convention</h3>
+                <p class="log-org">Engineering &amp; computer technology · participant</p>
+                <p>Talks and presentations on industry developments and emerging technologies.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 CERTIFICATIONS -->
+    <section id="certifications" class="section certs">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-idx">07</span>
+          <span class="sec-kicker">Credentials</span>
+          <h2 class="sec-title split">Badges <em>earned</em></h2>
+        </header>
+
+        <div class="certs-summary">
+          <div class="certs-count">
+            <span class="certs-num" data-count="15">15</span>
+            <span class="certs-num-label">verified badges<br>on Credly</span>
+          </div>
+
+          <div class="certs-breakdown">
+            <div class="certs-bar" aria-hidden="true">
+              <span class="cb-ibm" style="--w: 9"></span>
+              <span class="cb-cisco" style="--w: 5"></span>
+              <span class="cb-cert" style="--w: 1"></span>
+            </div>
+            <div class="certs-filters" role="group" aria-label="Filter badges by issuer">
+              <button class="chip is-active" data-filter="all">All <b>15</b></button>
+              <button class="chip" data-filter="ibm"><i class="dot ibm"></i>IBM <b>9</b></button>
+              <button class="chip" data-filter="cisco"><i class="dot cisco"></i>Cisco <b>5</b></button>
+              <button class="chip" data-filter="certiport"><i class="dot cert"></i>Certiport <b>1</b></button>
+            </div>
+          </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="glass-card webdev-card mouse-glow-card">
-          <div class="webdev-header">
-            <h3 class="webdev-title">Landing Pages</h3>
-            <span class="webdev-num">02</span>
-          </div>
-          <p class="webdev-desc">SEO-friendly promotional pages built to capture user conversions with rapid asset
-            loads.</p>
+        <div class="badge-grid" id="badge-grid">
+          <a class="badge" data-issuer="cisco" href="https://www.credly.com/badges/9a22deec-48d0-4a63-8a94-27f88447b0b2/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">01</span>
+            <div class="badge-medal"><img src="assets/images/badges/9a22deec.png" alt="Operating Systems Basics badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>Cisco</span><time datetime="2026-10-06">Oct 2026</time></div>
+            <h3 class="badge-name">Operating Systems Basics</h3>
+            <ul class="badge-skills"><li>Android</li><li>Linux</li><li>Mobile Network Connectivity</li></ul>
+            <div class="badge-foot"><span class="badge-level">Foundational</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="certiport" href="https://www.credly.com/badges/72add138-810e-4f21-91dd-8856a08fc4ab/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">02</span>
+            <div class="badge-medal"><img src="assets/images/badges/72add138.png" alt="IT Specialist - Cloud Computing badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>Certiport · Pearson VUE</span><time datetime="2026-05-20">May 2026</time></div>
+            <h3 class="badge-name">IT Specialist - Cloud Computing</h3>
+            <ul class="badge-skills"><li>AWS</li><li>Azure</li><li>Cloud Computing</li></ul>
+            <div class="badge-foot"><span class="badge-level is-cert">Certification</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="cisco" href="https://www.credly.com/badges/e71f4f85-1ba1-45ef-b390-e4d62c76c65f/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">03</span>
+            <div class="badge-medal"><img src="assets/images/badges/e71f4f85.png" alt="Introduction to Data Science badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>Cisco</span><time datetime="2026-04-19">Apr 2026</time></div>
+            <h3 class="badge-name">Introduction to Data Science</h3>
+            <ul class="badge-skills"><li>Data Analysis</li><li>Data Collection</li><li>Data Validation</li></ul>
+            <div class="badge-foot"><span class="badge-level">Foundational</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="cisco" href="https://www.credly.com/badges/684eb629-f97a-4d85-b849-acf73b38ffea/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">04</span>
+            <div class="badge-medal"><img src="assets/images/badges/684eb629.png" alt="Python Essentials 1 badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>Cisco</span><time datetime="2026-02-13">Feb 2026</time></div>
+            <h3 class="badge-name">Python Essentials 1</h3>
+            <ul class="badge-skills"><li>Algorithmic Thinking</li><li>Analytical Thinking</li><li>Basic Python Programming</li></ul>
+            <div class="badge-foot"><span class="badge-level">Intermediate</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="ibm" href="https://www.credly.com/badges/96ed1425-7e20-422a-9e85-bcdc1314ee83/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">05</span>
+            <div class="badge-medal"><img src="assets/images/badges/96ed1425.png" alt="Web Development Fundamentals badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>IBM SkillsBuild</span><time datetime="2026-02-12">Feb 2026</time></div>
+            <h3 class="badge-name">Web Development Fundamentals</h3>
+            <ul class="badge-skills"><li>Accessibility And Usability</li><li>Back End Development</li><li>CSS</li></ul>
+            <div class="badge-foot"><span class="badge-level">Intermediate</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="ibm" href="https://www.credly.com/badges/e5281ce5-1dda-49a4-b8b7-11d6abc2a686/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">06</span>
+            <div class="badge-medal"><img src="assets/images/badges/e5281ce5.png" alt="User Experience Design Fundamentals badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>IBM SkillsBuild</span><time datetime="2026-01-07">Jan 2026</time></div>
+            <h3 class="badge-name">User Experience Design Fundamentals</h3>
+            <ul class="badge-skills"><li>Case Studies</li><li>Design Research</li><li>Design Tools</li></ul>
+            <div class="badge-foot"><span class="badge-level">Intermediate</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="ibm" href="https://www.credly.com/badges/c29ba708-91e4-4b8d-82d3-1792d17f7620/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">07</span>
+            <div class="badge-medal"><img src="assets/images/badges/c29ba708.png" alt="Working in a Digital World: Professional Skills badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>IBM SkillsBuild</span><time datetime="2025-12-16">Dec 2025</time></div>
+            <h3 class="badge-name">Working in a Digital World: Professional Skills</h3>
+            <ul class="badge-skills"><li>Agile Methodology</li><li>Business Acumen</li><li>Creative Thinking</li></ul>
+            <div class="badge-foot"><span class="badge-level">Foundational</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="cisco" href="https://www.credly.com/badges/1bc56f04-0029-490c-9886-9b32c21fc2ac/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">08</span>
+            <div class="badge-medal"><img src="assets/images/badges/1bc56f04.png" alt="Ethical Hacker badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>Cisco</span><time datetime="2025-11-25">Nov 2025</time></div>
+            <h3 class="badge-name">Ethical Hacker</h3>
+            <ul class="badge-skills"><li>Ethical Hacking</li><li>Exploiting Applications</li><li>Exploiting Networks</li></ul>
+            <div class="badge-foot"><span class="badge-level">Intermediate</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="ibm" href="https://www.credly.com/badges/bc1ddd79-1426-4e2b-8068-c79870e7fa4d/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">09</span>
+            <div class="badge-medal"><img src="assets/images/badges/bc1ddd79.png" alt="Enterprise Design Thinking Practitioner badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>IBM SkillsBuild</span><time datetime="2025-10-28">Oct 2025</time></div>
+            <h3 class="badge-name">Enterprise Design Thinking Practitioner</h3>
+            <ul class="badge-skills"><li>Collaboration</li><li>Design</li><li>Empathy</li></ul>
+            <div class="badge-foot"><span class="badge-level">Foundational</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="cisco" href="https://www.credly.com/badges/0cfd9351-c3fc-4045-b1f3-ba7f9a2b0f57/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">10</span>
+            <div class="badge-medal"><img src="assets/images/badges/0cfd9351.png" alt="Network Addressing and Basic Troubleshooting badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>Cisco</span><time datetime="2025-09-26">Sep 2025</time></div>
+            <h3 class="badge-name">Network Addressing and Basic Troubleshooting</h3>
+            <ul class="badge-skills"><li>Cisco Routers</li><li>Cisco Switches</li><li>Copper and Fiber Cabling</li></ul>
+            <div class="badge-foot"><span class="badge-level">Skill badge</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="ibm" href="https://www.credly.com/badges/e8e6daa2-1fb5-4f75-9547-11f63fc5d7f6/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">11</span>
+            <div class="badge-medal"><img src="assets/images/badges/e8e6daa2.png" alt="Cybersecurity Fundamentals badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>IBM SkillsBuild</span><time datetime="2025-09-23">Sep 2025</time></div>
+            <h3 class="badge-name">Cybersecurity Fundamentals</h3>
+            <ul class="badge-skills"><li>Cryptography</li><li>Cyber Attacks</li><li>Cyber Threat Analysis</li></ul>
+            <div class="badge-foot"><span class="badge-level">Intermediate</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="ibm" href="https://www.credly.com/badges/462aa0f5-d975-4be9-9462-5713e3460a9d/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">12</span>
+            <div class="badge-medal"><img src="assets/images/badges/462aa0f5.png" alt="Artificial Intelligence Fundamentals badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>IBM SkillsBuild</span><time datetime="2024-10-04">Oct 2024</time></div>
+            <h3 class="badge-name">Artificial Intelligence Fundamentals</h3>
+            <ul class="badge-skills"><li>AI Applications</li><li>AI Capabilities</li><li>AI Ethics</li></ul>
+            <div class="badge-foot"><span class="badge-level">Intermediate</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="ibm" href="https://www.credly.com/badges/865a5c76-804d-496a-bac8-d4da1d0a1b6d/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">13</span>
+            <div class="badge-medal"><img src="assets/images/badges/865a5c76.png" alt="Explore Emerging Tech badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>IBM SkillsBuild</span><time datetime="2024-09-30">Sep 2024</time></div>
+            <h3 class="badge-name">Explore Emerging Tech</h3>
+            <ul class="badge-skills"><li>Artificial Intelligence (AI)</li><li>Blockchain</li><li>Career Exploration In Technology</li></ul>
+            <div class="badge-foot"><span class="badge-level">Foundational</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="ibm" href="https://www.credly.com/badges/25c3b5c6-49f9-4253-ba2d-bd209790f347/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">14</span>
+            <div class="badge-medal"><img src="assets/images/badges/25c3b5c6.png" alt="Cloud Computing Fundamentals badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>IBM SkillsBuild</span><time datetime="2024-09-24">Sep 2024</time></div>
+            <h3 class="badge-name">Cloud Computing Fundamentals</h3>
+            <ul class="badge-skills"><li>Cloud Computing</li><li>Cloud Infrastructure</li><li>Cloud Migration</li></ul>
+            <div class="badge-foot"><span class="badge-level">Intermediate</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="badge" data-issuer="ibm" href="https://www.credly.com/badges/adce3870-1603-42f8-9add-5ec5450349fd/public_url" target="_blank" rel="noopener noreferrer">
+            <span class="badge-no">15</span>
+            <div class="badge-medal"><img src="assets/images/badges/adce3870.png" alt="Fundamentals of Sustainability and Technology badge" loading="lazy" width="170" height="170"><span class="badge-sheen"></span></div>
+            <div class="badge-meta"><span>IBM</span><time datetime="2024-09-16">Sep 2024</time></div>
+            <h3 class="badge-name">Fundamentals of Sustainability and Technology</h3>
+            <ul class="badge-skills"><li>Artificial Intelligence</li><li>Cloud Computing</li><li>Conservation</li></ul>
+            <div class="badge-foot"><span class="badge-level">Intermediate</span><span class="badge-verify">Verify <svg class="i"><use href="#i-arrow"/></svg></span></div>
+          </a>
         </div>
 
-        <!-- Card 3 -->
-        <div class="glass-card webdev-card mouse-glow-card">
-          <div class="webdev-header">
-            <h3 class="webdev-title">Business Websites</h3>
-            <span class="webdev-num">03</span>
-          </div>
-          <p class="webdev-desc">Custom landing systems for corporations and small-to-medium enterprises with modular
-            grid features.</p>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="glass-card webdev-card mouse-glow-card">
-          <div class="webdev-header">
-            <h3 class="webdev-title">Dashboard Systems</h3>
-            <span class="webdev-num">04</span>
-          </div>
-          <p class="webdev-desc">Administrative panels featuring user analytics counters, tabular reports, and search
-            filters.</p>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="glass-card webdev-card mouse-glow-card">
-          <div class="webdev-header">
-            <h3 class="webdev-title">Database Integration</h3>
-            <span class="webdev-num">05</span>
-          </div>
-          <p class="webdev-desc">Dynamic data linking using robust PHP MySQL interfaces and Supabase cloud data APIs.
+        <div class="certs-more">
+          <p class="also">
+            <span>Also completed</span>
+            Android App Developer Course (Master Coding / Cursa) · UX Design for Mobile (Udacity / Cursa)
           </p>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="glass-card webdev-card mouse-glow-card">
-          <div class="webdev-header">
-            <h3 class="webdev-title">Responsive Design</h3>
-            <span class="webdev-num">06</span>
-          </div>
-          <p class="webdev-desc">Mobile-first CSS queries establishing unified visual balance across phones, tablets,
-            and wide monitors.</p>
+          <a href="https://www.credly.com/users/lance-aron-oboza/badges" target="_blank" rel="noopener noreferrer" class="btn btn-line">
+            Full profile on Credly <svg class="i"><use href="#i-arrow"/></svg>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- 8. MOBILE DEVELOPMENT SPECIFICS -->
-    <section id="mobile-development" class="container">
-      <div class="section-header">
-        <div class="section-label">App Development</div>
-        <h2 class="section-title">Mobile Development</h2>
-        <p class="section-desc">Developing native Android layouts and unified mobile systems using React Native APIs.
-        </p>
-      </div>
+    <!-- 08 CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-idx">08</span>
+          <span class="sec-kicker">Contact</span>
+        </header>
 
-      <div class="mobile-dev-wrap">
-        <div class="mobile-dev-details">
-          <h3 style="font-size: 1.6rem; font-weight: 700;">React Native & Expo Ecosystem</h3>
-          <p style="color: var(--text-secondary);">
-            I leverage modern mobile ecosystems to build performance-optimized, responsive, and data-linked mobile
-            solutions for client projects.
-          </p>
+        <h2 class="contact-title split">Hiring or have a project? <em>Let's talk.</em></h2>
 
-          <div class="mobile-features-grid">
-            <div class="mobile-feature-box">
-              <h4><i data-lucide="smartphone"></i> Android Apps</h4>
-              <p>Tailored layouts matching native Material guidelines.</p>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <button class="contact-row" data-copy="lanceoboza17@gmail.com">
+              <span class="cr-label">Email</span>
+              <span class="cr-value">lanceoboza17@gmail.com</span>
+              <span class="cr-act"><svg class="i"><use href="#i-copy"/></svg><span class="cr-msg">Copy</span></span>
+            </button>
+            <button class="contact-row" data-copy="+639934029664">
+              <span class="cr-label">Phone</span>
+              <span class="cr-value">+63 993 402 9664</span>
+              <span class="cr-act"><svg class="i"><use href="#i-copy"/></svg><span class="cr-msg">Copy</span></span>
+            </button>
+            <div class="contact-row static">
+              <span class="cr-label">Location</span>
+              <span class="cr-value">Nagcarlan, Laguna, Philippines</span>
             </div>
-            <div class="mobile-feature-box">
-              <h4><i data-lucide="shield-check"></i> Authentication</h4>
-              <p>Secure login forms using OAuth and Supabase providers.</p>
+            <a class="contact-row" href="assets/files/Lance-Aron-Oboza-Resume.pdf" download>
+              <span class="cr-label">Résumé</span>
+              <span class="cr-value">Lance-Aron-Oboza-Resume.pdf</span>
+              <span class="cr-act"><svg class="i"><use href="#i-down"/></svg><span>PDF</span></span>
+            </a>
+
+            <ul class="socials">
+              <li><a href="https://www.linkedin.com/in/lance-oboza-85623430a/" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="i"><use href="#i-arrow"/></svg></a></li>
+              <li><a href="https://github.com/Lanczu1" target="_blank" rel="noopener noreferrer">GitHub <svg class="i"><use href="#i-arrow"/></svg></a></li>
+              <li><a href="https://www.credly.com/users/lance-aron-oboza/badges" target="_blank" rel="noopener noreferrer">Credly <svg class="i"><use href="#i-arrow"/></svg></a></li>
+              <li><a href="https://www.facebook.com/StreamLanceTV/" target="_blank" rel="noopener noreferrer">Facebook <svg class="i"><use href="#i-arrow"/></svg></a></li>
+              <li><a href="https://www.tiktok.com/@lanczuwr" target="_blank" rel="noopener noreferrer">TikTok <svg class="i"><use href="#i-arrow"/></svg></a></li>
+              <li><a href="https://www.youtube.com/@Lanczu2" target="_blank" rel="noopener noreferrer">YouTube <svg class="i"><use href="#i-arrow"/></svg></a></li>
+            </ul>
+          </div>
+
+          <form class="form" id="contact-form" novalidate>
+            <div class="form-row">
+              <label class="field">
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Juan Dela Cruz" required autocomplete="name">
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input type="email" name="email" placeholder="you@company.com" required autocomplete="email">
+              </label>
             </div>
-            <div class="mobile-feature-box">
-              <h4><i data-lucide="network"></i> REST API Integration</h4>
-              <p>Parsing live server endpoints into structured app views.</p>
+            <label class="field">
+              <span>Subject</span>
+              <input type="text" name="subject" placeholder="Internship, job offer, project…" required>
+            </label>
+            <label class="field">
+              <span>Message</span>
+              <textarea name="message" rows="5" placeholder="Hi Lance, we're looking for…" required></textarea>
+            </label>
+            <div class="form-foot">
+              <button type="submit" class="btn btn-solid">Send message <svg class="i"><use href="#i-arrow"/></svg></button>
+              <p class="form-status" id="form-status" role="status"></p>
             </div>
-            <div class="mobile-feature-box">
-              <h4><i data-lucide="database"></i> Supabase Back-end</h4>
-              <p>Relational tables, file storage buckets, and realtime triggers.</p>
-            </div>
-          </div>
+          </form>
         </div>
-
-        <div class="mobile-dev-mockups">
-          <div class="mockup-phone secondary-phone">
-            <div class="phone-screen"
-              style="background-color: var(--bg-tertiary); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;">
-              <i data-lucide="smartphone"
-                style="width: 36px; height: 36px; color: var(--accent); margin-bottom: 12px;"></i>
-              <span style="font-family: var(--font-accent); font-size: 0.8rem; font-weight: 600;">React Native</span>
-              <p style="font-size: 0.65rem; color: var(--text-muted); margin-top: 5px;">Responsive Layout & Secure DB
-                Syncing</p>
-            </div>
-          </div>
-          <div class="mockup-phone">
-            <div class="phone-screen" style="padding: 0;">
-              <img src="assets/images/cookmate-mobile.png" alt="CookMate Mobile App"
-                style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. WORKFLOW TIMELINE SECTION -->
-    <section id="workflow" class="container">
-      <div class="section-header" style="text-align: center;">
-        <div class="section-label" style="justify-content: center;">Methodology</div>
-        <h2 class="section-title">My Workflow</h2>
-        <p class="section-desc" style="margin-left: auto; margin-right: auto;">The sequential phase pipeline I use to
-          transition concept briefs into completed releases.</p>
-      </div>
-
-      <div class="workflow-timeline">
-
-        <!-- Step 1 -->
-        <div class="timeline-item clearfix">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-step">STEP 01</span>
-            <h3 class="timeline-title">Research</h3>
-            <p class="timeline-desc">Investigating direct client needs, analyzing competitor layouts, and checking
-              content search indices to form structured specifications.</p>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="timeline-item clearfix">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-step">STEP 02</span>
-            <h3 class="timeline-title">Planning</h3>
-            <p class="timeline-desc">Creating wireframes, listing back-end requirements, plotting video script hooks,
-              and organizing editorial calendars.</p>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="timeline-item clearfix">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-step">STEP 03</span>
-            <h3 class="timeline-title">Development</h3>
-            <p class="timeline-desc">Writing semantic web markup, configuring database servers, connecting device APIs,
-              and scripting core platform behaviors.</p>
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="timeline-item clearfix">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-step">STEP 04</span>
-            <h3 class="timeline-title">Editing</h3>
-            <p class="timeline-desc">Pacing raw gaming clips, layering clean sound design, adding kinetic subtitles, and
-              applying color balance profiles.</p>
-          </div>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="timeline-item clearfix">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-step">STEP 05</span>
-            <h3 class="timeline-title">Testing</h3>
-            <p class="timeline-desc">Validating screen layouts across viewport widths, testing database API logic,
-              checking links, and tracking retention metrics.</p>
-          </div>
-        </div>
-
-        <!-- Step 6 -->
-        <div class="timeline-item clearfix">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-step">STEP 06</span>
-            <h3 class="timeline-title">Publishing</h3>
-            <p class="timeline-desc">Deploying server builds to live domains, exporting video tracks, and releasing
-              short-form highlights to platforms.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 10. WHY WORK WITH ME SECTION -->
-    <section id="why-work-with-me" class="container">
-      <div class="section-header">
-        <div class="section-label">Values</div>
-        <h2 class="section-title">Why Work With Me</h2>
-        <p class="section-desc">Commitment to technical quality, workflow velocity, and creative engagement.</p>
-      </div>
-
-      <div class="why-grid">
-        <!-- Card 1 -->
-        <div class="glass-card why-card mouse-glow-card">
-          <div class="why-icon"><i data-lucide="zap"></i></div>
-          <h3 class="why-title">Fast Learner</h3>
-          <p class="why-desc">Rapidly testing unknown documentation, adopting API changes, and refining software
-            versions.</p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="glass-card why-card mouse-glow-card">
-          <div class="why-icon"><i data-lucide="lightbulb"></i></div>
-          <h3 class="why-title">Creative Problem Solver</h3>
-          <p class="why-desc">Connecting code logic with visual design to fix layouts and drive user retention.</p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="glass-card why-card mouse-glow-card">
-          <div class="why-icon"><i data-lucide="eye"></i></div>
-          <h3 class="why-title">Detail-Oriented</h3>
-          <p class="why-desc">Ensuring clean indentation, zero-delay cursor hovers, responsive margins, and aligned
-            colors.</p>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="glass-card why-card mouse-glow-card">
-          <div class="why-icon"><i data-lucide="users"></i></div>
-          <h3 class="why-title">Team Player</h3>
-          <p class="why-desc">Maintaining open communication and sharing tasks to reach team project goals.</p>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="glass-card why-card mouse-glow-card">
-          <div class="why-icon"><i data-lucide="award"></i></div>
-          <h3 class="why-title">Strong Work Ethic</h3>
-          <p class="why-desc">Meeting scheduled milestones, checking files, and aiming for premium production quality.
-          </p>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="glass-card why-card mouse-glow-card">
-          <div class="why-icon"><i data-lucide="cpu"></i></div>
-          <h3 class="why-title">Tech Passionate</h3>
-          <p class="why-desc">Constantly studying software and gaming trends to build interactive assets.</p>
-        </div>
-
-        <!-- Card 7 -->
-        <div class="glass-card why-card mouse-glow-card">
-          <div class="why-icon"><i data-lucide="sliders"></i></div>
-          <h3 class="why-title">Adaptable to New Tools</h3>
-          <p class="why-desc">Deploying automation pipelines and utilizing AI workflows (ChatGPT, Gemini, Claude).</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 11. CURRENTLY LEARNING SECTION -->
-    <section id="currently-learning" class="container">
-      <div class="section-header" style="text-align: center;">
-        <div class="section-label" style="justify-content: center;">Roadmap</div>
-        <h2 class="section-title">Currently Learning</h2>
-        <p class="section-desc" style="margin-left: auto; margin-right: auto;">Expanding my technical skill set to
-          unlock more creative digital possibilities.</p>
-      </div>
-
-      <div class="roadmap-wrap">
-        <!-- Path 1 -->
-        <div class="glass-card roadmap-card mouse-glow-card">
-          <div class="roadmap-index">01</div>
-          <div class="roadmap-info">
-            <h3 class="roadmap-title">Advanced Video Editing</h3>
-            <span class="roadmap-status status-active">Active</span>
-          </div>
-        </div>
-
-        <!-- Path 2 -->
-        <div class="glass-card roadmap-card mouse-glow-card">
-          <div class="roadmap-index">02</div>
-          <div class="roadmap-info">
-            <h3 class="roadmap-title">Motion Graphics</h3>
-            <span class="roadmap-status status-active">Active</span>
-          </div>
-        </div>
-
-        <!-- Path 3 -->
-        <div class="glass-card roadmap-card mouse-glow-card">
-          <div class="roadmap-index">03</div>
-          <div class="roadmap-info">
-            <h3 class="roadmap-title">UI/UX Design Systems</h3>
-            <span class="roadmap-status status-active">Active</span>
-          </div>
-        </div>
-
-        <!-- Path 4 -->
-        <div class="glass-card roadmap-card mouse-glow-card">
-          <div class="roadmap-index">04</div>
-          <div class="roadmap-info">
-            <h3 class="roadmap-title">Content & Retention Strategy</h3>
-            <span class="roadmap-status status-active">Active</span>
-          </div>
-        </div>
-
-        <!-- Path 5 -->
-        <div class="glass-card roadmap-card mouse-glow-card">
-          <div class="roadmap-index">05</div>
-          <div class="roadmap-info">
-            <h3 class="roadmap-title">Digital Marketing Analytics</h3>
-            <span class="roadmap-status status-active">Active</span>
-          </div>
-        </div>
-
-        <!-- Path 6 -->
-        <div class="glass-card roadmap-card mouse-glow-card">
-          <div class="roadmap-index">06</div>
-          <div class="roadmap-info">
-            <h3 class="roadmap-title">AI Workflow Automation</h3>
-            <span class="roadmap-status status-active">Active</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 12. CERTIFICATIONS & BADGES SECTION -->
-    <section id="certifications" class="container">
-      <div class="section-header" style="text-align: center;">
-        <div class="section-label" style="justify-content: center;">Achievements</div>
-        <h2 class="section-title">Certifications & Badges</h2>
-        <p class="section-desc" style="margin-left: auto; margin-right: auto;">Verified credentials and digital badges
-          validating my professional skills.</p>
-      </div>
-
-      <div style="display: flex; justify-content: center; padding: 20px 0 60px;">
-        <a href="https://www.credly.com/users/lance-aron-oboza/badges/credly" target="_blank" rel="noopener noreferrer"
-          style="text-decoration: none; color: inherit; display: block;">
-          <div class="glass-card mouse-glow-card"
-            style="padding: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 320px; transition: transform 0.3s ease;"
-            onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-            <div
-              style="width: 80px; height: 80px; margin-bottom: 20px; border-radius: var(--radius-full); background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(212,175,55,0.2);">
-              <i data-lucide="award" style="width: 40px; height: 40px; color: var(--accent);"></i>
-            </div>
-            <h3
-              style="font-family: var(--font-headings); font-size: 1.4rem; margin-bottom: 12px; color: var(--text-primary);">
-              Credly Badges</h3>
-            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">View my
-              verified digital badges and professional certifications on Credly.</p>
-
-            <div
-              style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; color: var(--accent);">
-              View Profile <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-
-    <!-- 12. CONTACT SECTION -->
-    <section id="contact" class="container">
-      <div class="section-header">
-        <div class="section-label">Connect</div>
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-desc">Have a project, job opening, or collaboration request? Send a message directly.</p>
-      </div>
-
-      <div class="contact-grid">
-        <!-- Contact Cards -->
-        <div class="contact-info">
-
-          <div class="glass-card contact-card mouse-glow-card" style="cursor: pointer;"
-            onclick="copyToClipboard('lanceoboza17@gmail.com', this)">
-            <div class="contact-icon-box"><i data-lucide="mail"></i></div>
-            <div class="contact-details">
-              <h4>Email <span class="copy-feedback"
-                  style="display:none; color: #22C55E; font-size: 0.8rem; margin-left: 8px;">Copied! ✓</span></h4>
-              <p>lanceoboza17@gmail.com</p>
-            </div>
-          </div>
-
-          <div class="glass-card contact-card mouse-glow-card" style="cursor: pointer;"
-            onclick="copyToClipboard('+639934029664', this)">
-            <div class="contact-icon-box"><i data-lucide="phone"></i></div>
-            <div class="contact-details">
-              <h4>Phone Number <span class="copy-feedback"
-                  style="display:none; color: #22C55E; font-size: 0.8rem; margin-left: 8px;">Copied! ✓</span></h4>
-              <p>+63 9934029664</p>
-            </div>
-          </div>
-
-          <div class="glass-card contact-card mouse-glow-card">
-            <div class="contact-icon-box"><i data-lucide="map-pin"></i></div>
-            <div class="contact-details">
-              <h4>Location</h4>
-              <p>Nagcarlan Laguna, Philippines</p>
-            </div>
-          </div>
-
-          <div class="contact-socials">
-            <a href="https://www.facebook.com/StreamLanceTV/" target="_blank" rel="noopener noreferrer"
-              class="social-circle" aria-label="Facebook Profile"><img src="assets/images/facebook.png" alt="Facebook"
-                style="width: 22px; height: 22px; object-fit: contain;"></a>
-            <a href="https://github.com/Lanczu1" target="_blank" rel="noopener noreferrer" class="social-circle"
-              aria-label="GitHub Profile"><img src="assets/images/github.svg" alt="GitHub"
-                style="width: 22px; height: 22px; object-fit: contain;"></a>
-            <a href="https://www.tiktok.com/@lanczuwr" target="_blank" rel="noopener noreferrer" class="social-circle"
-              aria-label="TikTok Handle"><img src="assets/images/tiktok.png" alt="TikTok"
-                style="width: 20px; height: 20px; object-fit: contain; filter: invert(1); mix-blend-mode: screen;"></a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lanceoboza17@gmail.com" target="_blank"
-              rel="noopener noreferrer" class="social-circle" aria-label="Email Me"><i data-lucide="mail"></i></a>
-          </div>
-        </div>
-
-        <!-- Contact Form (Web3Forms API) -->
-        <form class="contact-form" id="contact-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="form-name" class="form-label">Full Name</label>
-              <input type="text" id="form-name" name="name" class="form-input" placeholder="John Doe" required>
-            </div>
-            <div class="form-group">
-              <label for="form-email" class="form-label">Email Address</label>
-              <input type="email" id="form-email" name="email" class="form-input" placeholder="john@example.com" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="form-subject" class="form-label">Subject</label>
-            <input type="text" id="form-subject" name="subject" class="form-input" placeholder="Project Collaboration Proposal"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="form-message" class="form-label">Message</label>
-            <textarea id="form-message" name="message" class="form-input" placeholder="Hi Lance, I am interested in building..."
-              required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="margin-top: 10px;">
-            Send Message <i data-lucide="send" style="width: 18px; height: 18px;"></i>
-          </button>
-        </form>
       </div>
     </section>
 
   </main>
 
-  <!-- Footer Section -->
   <footer class="footer">
-    <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top">
-      <i data-lucide="arrow-up" style="width: 20px; height: 20px;"></i>
-    </button>
-
-    <div class="container footer-container">
-      <div class="footer-copyright">
-        &copy; 2026 Lance Aron Oboza. Aspiring Gaming Creator, Developer, & Editor. All rights reserved.
-      </div>
-
-      <div class="footer-social-wrap">
-        <a href="https://www.facebook.com/StreamLanceTV/" target="_blank" rel="noopener noreferrer"
-          class="social-circle" style="width:36px; height:36px; font-size:0.9rem;" aria-label="Facebook"><img
-            src="assets/images/facebook.png" alt="Facebook" style="width: 18px; height: 18px; object-fit: contain;"></a>
-        <a href="https://github.com/Lanczu1" target="_blank" rel="noopener noreferrer" class="social-circle"
-          style="width:36px; height:36px; font-size:0.9rem;" aria-label="GitHub"><img src="assets/images/github.svg"
-            alt="GitHub" style="width: 18px; height: 18px; object-fit: contain;"></a>
-        <a href="https://www.tiktok.com/@lanczuwr" target="_blank" rel="noopener noreferrer" class="social-circle"
-          style="width:36px; height:36px; font-size:0.9rem;" aria-label="TikTok"><img src="assets/images/tiktok.png"
-            alt="TikTok"
-            style="width: 16px; height: 16px; object-fit: contain; filter: invert(1); mix-blend-mode: screen;"></a>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lanceoboza17@gmail.com" target="_blank"
-          rel="noopener noreferrer" class="social-circle" style="width:36px; height:36px; font-size:0.9rem;"
-          aria-label="Email"><i data-lucide="mail"></i></a>
+    <div class="wrap">
+      <div class="footer-mark" aria-hidden="true">Lance Oboza</div>
+      <div class="footer-row">
+        <span>&copy; 2026 Lance Aron Oboza</span>
+        <span>Web &amp; mobile developer · Laguna, PH</span>
+        <button class="to-top" id="to-top" aria-label="Back to top">Back to top <svg class="i"><use href="#i-up"/></svg></button>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="lightbox-close" aria-label="Close preview">Close ✕</button>
+    <img alt="">
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-
-  <!-- Custom Application Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 
