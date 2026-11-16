@@ -1,0 +1,350 @@
+/* ==========================================================================
+   Motion layer — sits on top of styles.css.
+   Playback HUD, scroll progress, viewfinder cursor, hero light leak,
+   kinetic type band, lower-third wipes and per-letter type.
+   ========================================================================== */
+
+/* ---------- Scroll progress (top edge) ---------- */
+.progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 2px;
+  z-index: 120;
+  pointer-events: none;
+}
+.progress span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--sig);
+  transform: scaleX(0);
+  transform-origin: left;
+  box-shadow: 0 0 12px rgba(255, 91, 31, 0.6);
+}
+
+/* ---------- Viewfinder cursor (fine pointers only, enabled from JS) ---------- */
+.cursor { display: none; }
+
+.has-cursor .cursor {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  pointer-events: none;
+}
+.has-cursor,
+.has-cursor a,
+.has-cursor button,
+.has-cursor .zoomable,
+.has-cursor label { cursor: none; }
+.has-cursor input,
+.has-cursor textarea { cursor: text; }
+
+.cursor-dot,
+.cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: var(--sig);
+}
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  display: grid;
+  place-items: center;
+  /* four corner brackets, like a focus box */
+  background:
+    linear-gradient(var(--bone), var(--bone)) top left / 9px 1.5px no-repeat,
+    linear-gradient(var(--bone), var(--bone)) top left / 1.5px 9px no-repeat,
+    linear-gradient(var(--bone), var(--bone)) top right / 9px 1.5px no-repeat,
+    linear-gradient(var(--bone), var(--bone)) top right / 1.5px 9px no-repeat,
+    linear-gradient(var(--bone), var(--bone)) bottom left / 9px 1.5px no-repeat,
+    linear-gradient(var(--bone), var(--bone)) bottom left / 1.5px 9px no-repeat,
+    linear-gradient(var(--bone), var(--bone)) bottom right / 9px 1.5px no-repeat,
+    linear-gradient(var(--bone), var(--bone)) bottom right / 1.5px 9px no-repeat;
+  transition: width 0.35s var(--ease), height 0.35s var(--ease), margin 0.35s var(--ease), background-color 0.35s var(--ease);
+}
+.cursor-label {
+  font-family: var(--f-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sig-ink);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.25s, transform 0.35s var(--ease);
+  white-space: nowrap;
+}
+
+.cursor.is-link .cursor-ring { width: 54px; height: 54px; margin: -27px 0 0 -27px; }
+.cursor.is-link .cursor-dot { opacity: 0; }
+
+.cursor.is-label .cursor-ring {
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+  background-color: var(--sig);
+  border-radius: 50%;
+  background-image: none;
+}
+.cursor.is-label .cursor-label { opacity: 1; transform: scale(1); }
+.cursor.is-label .cursor-dot { opacity: 0; }
+
+.cursor.is-down .cursor-ring { width: 26px; height: 26px; margin: -13px 0 0 -13px; }
+.cursor.is-hidden { opacity: 0; }
+
+/* ---------- Playback HUD (bottom right) ---------- */
+.hud {
+  position: fixed;
+  right: var(--gutter);
+  bottom: 22px;
+  z-index: 110;
+  width: 210px;
+  padding: 10px 12px 12px;
+  background: rgba(13, 13, 11, 0.78);
+  border: 1px solid var(--line-2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--f-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.hud.is-on { opacity: 1; transform: none; }
+
+.hud-top { display: flex; justify-content: space-between; align-items: center; }
+.hud-rec { display: inline-flex; align-items: center; gap: 6px; color: var(--sig); }
+.hud-rec i {
+  width: 0; height: 0;
+  border-left: 6px solid var(--sig);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+.hud.is-scrubbing .hud-rec i { animation: blink 0.5s steps(2) infinite; }
+.hud-tc { color: var(--bone); font-variant-numeric: tabular-nums; }
+
+.hud-scene {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 8px 0 10px;
+  color: var(--bone);
+}
+.hud-no {
+  font-family: var(--f-display);
+  font-stretch: 68%;
+  font-variation-settings: 'wdth' 68;
+  font-weight: 800;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--sig);
+  letter-spacing: 0;
+}
+.hud-name {
+  display: block;
+  overflow: hidden;
+  height: 1.3em;
+  line-height: 1.3;
+  font-size: 0.72rem;
+}
+.hud-name span { display: block; }
+
+.hud-track { position: relative; height: 3px; background: var(--line-2); }
+.hud-track span {
+  position: absolute; inset: 0;
+  background: var(--bone-2);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.hud-track i {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 2px;
+  height: 11px;
+  background: var(--sig);
+}
+/* scene markers on the track, drawn from JS */
+.hud-track b {
+  position: absolute;
+  top: -2px;
+  width: 1px;
+  height: 7px;
+  background: var(--mute);
+}
+
+/* ---------- Hero light leak + scanline ---------- */
+.hero { overflow: hidden; }
+.hero-grid { position: relative; z-index: 1; }
+
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(70px);
+  opacity: 0.55;
+}
+.hero-glow span {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+.hero-glow span:first-child {
+  width: 46vw;
+  height: 46vw;
+  max-width: 640px;
+  max-height: 640px;
+  right: 4%;
+  top: 8%;
+  background: radial-gradient(circle, rgba(255, 91, 31, 0.32), rgba(255, 91, 31, 0) 65%);
+}
+.hero-glow span:last-child {
+  width: 30vw;
+  height: 30vw;
+  max-width: 420px;
+  max-height: 420px;
+  left: -6%;
+  bottom: -10%;
+  background: radial-gradient(circle, rgba(242, 193, 78, 0.16), rgba(242, 193, 78, 0) 65%);
+}
+
+.hero-scan {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(236, 232, 223, 0.025) 0 1px, transparent 1px 4px);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+}
+/* a single bright scan bar that rolls down the hero */
+.hero-scan::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 120px;
+  background: linear-gradient(180deg, transparent, rgba(236, 232, 223, 0.035), transparent);
+  animation: scanroll 7s linear infinite;
+}
+@keyframes scanroll { from { transform: translateY(-140px); } to { transform: translateY(100vh); } }
+
+/* Per-letter hero title (split in JS) */
+.chw { display: inline-block; white-space: nowrap; }
+.hero-title .ch { display: inline-block; will-change: transform; }
+.hero-title .line > span { cursor: default; }
+
+/* Viewfinder layers drift with the pointer via the independent `translate` property,
+   so they never fight the GSAP transforms from the intro. */
+.vf-word, .vf-subject, .vf-thirds, .vf-corner {
+  translate: var(--px, 0) var(--py, 0);
+}
+.vf-word    { --px: calc(var(--mx, 0) * -22px); --py: calc(var(--my, 0) * -14px); }
+.vf-subject { --px: calc(var(--mx, 0) * 14px);  --py: calc(var(--my, 0) * 8px); }
+.vf-thirds  { --px: calc(var(--mx, 0) * -6px);  --py: calc(var(--my, 0) * -6px); }
+.vf-corner  { --px: calc(var(--mx, 0) * 5px);   --py: calc(var(--my, 0) * 5px); }
+
+.vf-frame::after {
+  /* chromatic fringe that flashes on a "cut" */
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(255, 0, 80, 0.12), transparent 30%, transparent 70%, rgba(0, 200, 255, 0.12));
+  mix-blend-mode: screen;
+  opacity: var(--glitch, 0);
+}
+
+/* ---------- Lower-third wipe on section titles ---------- */
+.sec-title { position: relative; }
+.wipe {
+  position: absolute;
+  left: -0.1em;
+  right: -0.1em;
+  top: 0.04em;
+  bottom: 0.02em;
+  background: var(--sig);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Scrambling mono labels keep their width while they decode */
+.scramble { font-variant-numeric: tabular-nums; }
+.scramble .sc { color: var(--sig); }
+
+/* ---------- About statement: words light up as you read ---------- */
+.about-statement .w { transition: none; }
+
+/* ---------- Kinetic type band ---------- */
+.kinetic {
+  padding: clamp(50px, 8vw, 110px) 0;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  display: grid;
+  gap: clamp(4px, 1vw, 12px);
+}
+.kinetic-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 36px);
+  width: max-content;
+  will-change: transform;
+}
+.kinetic-row span {
+  font-family: var(--f-display);
+  font-stretch: 62%;
+  font-variation-settings: 'wdth' 62;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(4rem, 13vw, 12rem);
+  line-height: 0.86;
+  white-space: nowrap;
+}
+.kinetic-row span.o { color: transparent; -webkit-text-stroke: 1.5px var(--bone-2); }
+.kinetic-row:nth-child(2) span:not(.o) { color: var(--sig); }
+.kinetic-row i {
+  flex: none;
+  width: clamp(18px, 2.6vw, 38px);
+  height: clamp(18px, 2.6vw, 38px);
+  border-radius: 50%;
+  border: 2px solid var(--sig);
+}
+.kinetic-row:nth-child(2) i { border-radius: 0; background: var(--bone); border: 0; transform: rotate(45deg); }
+
+/* ---------- Project media: 3D tilt ---------- */
+.project-media { perspective: 1400px; }
+.project-media .device-browser,
+.project-media .device-phone { transform-style: preserve-3d; will-change: transform; }
+
+/* ---------- Footer mark: per-letter ---------- */
+.footer-mark .ch { display: inline-block; will-change: transform; }
+
+/* ---------- Magnetic targets ---------- */
+.magnetic { translate: var(--mgx, 0px) var(--mgy, 0px); }
+
+/* ---------- Responsive / reduced motion ---------- */
+@media (max-width: 960px) {
+  .hud { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scan::after { animation: none; display: none; }
+  .hero-glow span { transform: none !important; }
+}

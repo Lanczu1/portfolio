@@ -1,0 +1,261 @@
+/* ==========================================================================
+   Lance guide (pixel character chat button + contact panel),
+   theme toggle and character logo. Loaded after theme.css.
+   ========================================================================== */
+
+/* ---------- Guide button ---------- */
+.buddy {
+  position: fixed;
+  right: clamp(12px, 2.4vw, 28px);
+  bottom: clamp(12px, 2.4vw, 24px);
+  z-index: 140;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+}
+
+/* Just the full-body character: no circle, background, border or shadow */
+.buddy-btn {
+  --buddy-h: clamp(120px, 12vw, 160px);
+  display: block;
+  height: var(--buddy-h);
+  padding: 0;
+  background: none;
+  border: 0;
+  pointer-events: auto;
+  transition: transform 0.35s var(--ease);
+}
+.buddy-btn:hover { transform: translateY(-4px); }
+.buddy-btn:focus-visible { outline: 2px solid var(--sig); outline-offset: 4px; border-radius: 8px; }
+
+.buddy-btn img {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  transform-origin: 50% 100%;
+  animation: buddy-idle 3.2s ease-in-out infinite;
+}
+/* idle: gentle bob */
+@keyframes buddy-idle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3%); } }
+/* hop when the section changes */
+.buddy-btn img.is-swap { animation: buddy-hop 0.5s var(--ease); }
+@keyframes buddy-hop {
+  0%   { transform: translateY(0) scaleY(1); }
+  30%  { transform: translateY(-12%) scaleY(1.03); }
+  60%  { transform: translateY(0) scaleY(0.96); }
+  100% { transform: none; }
+}
+
+/* Speech bubble */
+.buddy-bubble {
+  max-width: min(240px, 62vw);
+  margin-bottom: 30px;
+  padding: 10px 14px;
+  border-radius: 14px 14px 4px 14px;
+  background: var(--ink-2);
+  border: 1px solid var(--line-2);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--bone);
+  opacity: 0;
+  transform: translateY(8px) scale(0.94);
+  transform-origin: right bottom;
+  transition: opacity 0.3s var(--ease), transform 0.4s var(--ease);
+}
+.buddy.is-talking .buddy-bubble { opacity: 1; transform: none; pointer-events: auto; }
+.buddy.is-open .buddy-bubble { opacity: 0; transform: translateY(8px) scale(0.94); }
+
+/* ---------- Contact panel ---------- */
+.buddy-panel {
+  position: fixed;
+  right: clamp(12px, 2.4vw, 28px);
+  bottom: calc(clamp(12px, 2.4vw, 24px) + clamp(120px, 12vw, 160px) + 12px);
+  z-index: 141;
+  width: min(384px, calc(100vw - 24px));
+  max-height: calc(100svh - 150px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background: var(--ink-2);
+  border: 1px solid var(--line-2);
+  box-shadow: 0 30px 70px -20px rgba(15, 18, 23, 0.35), var(--shadow);
+  overflow: hidden;
+  transform-origin: right bottom;
+}
+.buddy-panel[hidden] { display: none; }
+.buddy-panel.is-in { animation: panel-in 0.4s var(--ease); }
+@keyframes panel-in { from { opacity: 0; transform: translateY(14px) scale(0.95); } }
+
+.bp-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px 14px 16px;
+  background: var(--sig);
+  color: #fff;
+}
+.bp-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  display: grid;
+  place-items: end center;
+  overflow: hidden;
+}
+.bp-avatar img { width: 115%; height: auto; max-width: none; margin-bottom: -10%; }
+.bp-name { font-family: var(--f-display); font-size: 1.02rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+.bp-sub { display: flex; align-items: center; gap: 6px; font-size: 0.76rem; opacity: 0.85; }
+.bp-sub i { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; }
+.bp-close {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: #fff;
+  transition: background-color 0.25s;
+}
+.bp-close:hover { background: rgba(255, 255, 255, 0.16); }
+.bp-close .i { width: 18px; height: 18px; }
+
+.bp-body {
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+  overflow-y: auto;
+  background:
+    radial-gradient(80% 50% at 0% 0%, var(--sig-soft), transparent 70%),
+    var(--ink-2);
+}
+.bp-msg {
+  justify-self: start;
+  max-width: 88%;
+  padding: 10px 13px;
+  border-radius: 4px 14px 14px 14px;
+  background: var(--ink-3);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--bone);
+}
+.buddy-panel.is-in .bp-msg { animation: msg-in 0.4s var(--ease) both; }
+.buddy-panel.is-in .bp-msg:nth-child(2) { animation-delay: 0.12s; }
+@keyframes msg-in { from { opacity: 0; transform: translateY(8px); } }
+
+.bp-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  margin-top: 6px;
+}
+.bp-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  transition: border-color 0.25s, transform 0.25s var(--ease);
+}
+.bp-row:hover { border-color: var(--sig); transform: translateX(2px); }
+.bp-wide { grid-column: 1 / -1; }
+.bp-ico {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--sig-soft);
+  color: var(--sig);
+}
+.bp-ico .i { width: 17px; height: 17px; }
+.bp-txt { display: grid; min-width: 0; font-size: 0.86rem; font-weight: 600; color: var(--bone); overflow-wrap: break-word; }
+.bp-txt small { font-family: var(--f-mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dim); }
+
+.bp-copy {
+  display: grid;
+  place-items: center;
+  gap: 2px;
+  width: 56px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--dim);
+  transition: border-color 0.25s, color 0.25s;
+}
+.bp-copy .i { width: 15px; height: 15px; }
+.bp-copy:hover { border-color: var(--sig); color: var(--sig); }
+.bp-copy.copied { color: #16a34a; border-color: #16a34a; }
+
+.bp-socials { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.bp-socials a {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--bone-2);
+  transition: border-color 0.25s, color 0.25s;
+}
+.bp-socials a:hover { border-color: var(--sig); color: var(--sig); }
+
+.bp-foot { padding: 12px 16px 16px; border-top: 1px solid var(--line); }
+.bp-cta { width: 100%; justify-content: center; }
+
+/* keep the footer's "Back to top" clear of the guide */
+.footer-row { padding-right: clamp(0px, 9vw, 120px); }
+
+/* the scroll HUD moves to the bottom left so the guide can own the right */
+.hud { right: auto; left: var(--gutter); }
+
+/* ---------- Theme toggle ---------- */
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  border: 1px solid var(--line-2);
+  color: var(--bone);
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+}
+.theme-toggle:hover { border-color: var(--sig); color: var(--sig); }
+.theme-toggle .i { width: 18px; height: 18px; grid-area: 1 / 1; transition: transform 0.5s var(--ease), opacity 0.3s; }
+.theme-toggle .i-sun { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+[data-theme="dark"] .theme-toggle .i-moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
+[data-theme="dark"] .theme-toggle .i-sun { opacity: 1; transform: none; }
+
+/* ---------- Character logo ---------- */
+.nav-logo-mark {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  overflow: hidden;
+  place-items: end center;
+  background: var(--sig-soft);
+  border: 1px solid var(--line);
+  transition: background-color 0.3s, transform 0.4s var(--ease);
+}
+.nav-logo-mark img { width: 112%; height: auto; max-width: none; margin-bottom: -8%; transition: transform 0.4s var(--ease); }
+.nav-logo:hover .nav-logo-mark { background: var(--sig-soft); }
+.nav-logo:hover .nav-logo-mark img { transform: translateY(-6%) rotate(-6deg); }
+
+@media (max-width: 720px) {
+  .buddy-bubble { margin-bottom: 22px; font-size: 0.8rem; }
+  .footer-row { padding-right: 96px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .buddy-btn img, .buddy-btn img.is-swap { animation: none; }
+}
