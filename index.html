@@ -11,7 +11,7 @@
   <meta name="keywords"
     content="Lance Aron Oboza, Web Developer, Mobile Developer, IT Support, PHP, MySQL, JavaScript, React Native, LSPU, Laguna, Philippines">
   <meta name="author" content="Lance Aron Oboza">
-  <meta name="theme-color" content="#0d0d0b">
+  <meta name="theme-color" content="#fafaf8">
   <link rel="canonical" href="https://lanceoboza.netlify.app/">
 
   <meta property="og:type" content="website">
@@ -25,9 +25,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/motion.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/buddy.css">
+  <script>
+    /* Pick the color theme before first paint: saved choice, else the system setting. */
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('lo-theme'); } catch (e) {}
+      if (t !== 'dark' && t !== 'light') {
+        t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 </head>
 
 <body class="is-loading">
@@ -38,6 +52,12 @@
     <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
     <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V5m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
     <symbol id="i-copy" viewBox="0 0 24 24"><path d="M9 9h11v11H9zM5 15H4V4h11v1" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m3 6 9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v4h4M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
     <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol>
   </svg>
 
@@ -58,10 +78,84 @@
 
   <div class="grain" aria-hidden="true"></div>
 
+  <!-- Motion layer: scroll progress, custom cursor, playback HUD -->
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="cursor-dot"></span>
+    <span class="cursor-ring"><span class="cursor-label" id="cursor-label"></span></span>
+  </div>
+
+  <div class="hud" id="hud" aria-hidden="true">
+    <div class="hud-top">
+      <span class="hud-rec"><i></i>PLAY</span>
+      <span class="hud-tc" id="hud-tc">00:00:00:00</span>
+    </div>
+    <div class="hud-scene">
+      <span class="hud-no" id="hud-no">00</span>
+      <span class="hud-name"><span id="hud-name">Intro</span></span>
+    </div>
+    <div class="hud-track"><span id="hud-fill"></span><i id="hud-head"></i></div>
+  </div>
+
+  <!-- Lance guide: pixel character that follows the scroll; click it to get in touch -->
+  <div class="buddy" id="buddy">
+    <p class="buddy-bubble" id="buddy-bubble" aria-live="polite">Hi! I'm Lance. Click me to get in touch.</p>
+    <button class="buddy-btn" id="buddy-btn" type="button" aria-label="Chat with Lance: contact options" aria-expanded="false" aria-controls="buddy-panel">
+      <img id="buddy-img" src="assets/images/lance/full-present.png" alt="" width="356" height="368">
+    </button>
+  </div>
+
+  <section class="buddy-panel" id="buddy-panel" role="dialog" aria-modal="false" aria-labelledby="buddy-title" hidden>
+    <header class="bp-head">
+      <span class="bp-avatar"><img src="assets/images/lance/head.png" alt="" width="188" height="161"></span>
+      <div>
+        <h2 class="bp-name" id="buddy-title">Lance Oboza</h2>
+        <p class="bp-sub"><i></i>Web &amp; mobile developer · Laguna, PH</p>
+      </div>
+      <button class="bp-close" id="buddy-close" type="button" aria-label="Close contact panel"><svg class="i"><use href="#i-close"/></svg></button>
+    </header>
+
+    <div class="bp-body">
+      <p class="bp-msg">Hi! Thanks for checking out my portfolio.</p>
+      <p class="bp-msg">Hiring or have a project? Here's how to reach me:</p>
+
+      <div class="bp-actions">
+        <a class="bp-row" href="mailto:lanceoboza17@gmail.com">
+          <span class="bp-ico"><svg class="i"><use href="#i-mail"/></svg></span>
+          <span class="bp-txt"><small>Email</small>lanceoboza17@gmail.com</span>
+        </a>
+        <button class="bp-copy" type="button" data-copy="lanceoboza17@gmail.com" aria-label="Copy email address"><svg class="i"><use href="#i-copy"/></svg><span class="cr-msg">Copy</span></button>
+
+        <a class="bp-row" href="tel:+639934029664">
+          <span class="bp-ico"><svg class="i"><use href="#i-phone"/></svg></span>
+          <span class="bp-txt"><small>Phone</small>+63 993 402 9664</span>
+        </a>
+        <button class="bp-copy" type="button" data-copy="+639934029664" aria-label="Copy phone number"><svg class="i"><use href="#i-copy"/></svg><span class="cr-msg">Copy</span></button>
+
+        <a class="bp-row bp-wide" href="assets/files/Lance-Aron-Oboza-Resume.pdf" download>
+          <span class="bp-ico"><svg class="i"><use href="#i-file"/></svg></span>
+          <span class="bp-txt"><small>Résumé</small>Download PDF</span>
+        </a>
+      </div>
+
+      <ul class="bp-socials">
+        <li><a href="https://www.linkedin.com/in/lance-oboza-85623430a/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/Lanczu1" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.facebook.com/StreamLanceTV/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://www.tiktok.com/@lanczuwr" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+      </ul>
+    </div>
+
+    <footer class="bp-foot">
+      <a href="#contact" class="btn btn-solid bp-cta" id="buddy-form">Send me a message <svg class="i"><use href="#i-arrow"/></svg></a>
+    </footer>
+  </section>
+
   <!-- Navigation -->
   <header class="nav" id="nav">
     <a href="#home" class="nav-logo" aria-label="Lance Aron Oboza, home">
-      <span class="nav-logo-mark">LO</span>
+      <span class="nav-logo-mark"><img src="assets/images/lance/head.png" alt="" width="188" height="161"></span>
       <span class="nav-logo-text">Lance Oboza</span>
     </a>
 
@@ -75,6 +169,10 @@
     </nav>
 
     <div class="nav-right">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+        <svg class="i i-moon"><use href="#i-moon"/></svg>
+        <svg class="i i-sun"><use href="#i-sun"/></svg>
+      </button>
       <a href="assets/files/Lance-Aron-Oboza-Resume.pdf" class="nav-resume" target="_blank" rel="noopener">Résumé <svg class="i"><use href="#i-arrow"/></svg></a>
       <a href="#contact" class="btn btn-sm btn-solid">Let's talk</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -101,7 +199,9 @@
   <main>
 
     <!-- HERO -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" data-scene="Intro">
+      <div class="hero-glow" aria-hidden="true"><span></span><span></span></div>
+      <div class="hero-scan" aria-hidden="true"></div>
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <div class="hero-meta">
@@ -317,9 +417,63 @@
 
         <div class="projects">
 
-          <article class="project">
+          <article class="project project-eco">
             <div class="project-bar">
               <span class="project-no">01</span>
+              <span class="project-kind">Mobile app + admin panel · AI · Gamified · 2026</span>
+              <span class="project-role">Developer</span>
+            </div>
+            <div class="project-body">
+              <!-- EcoBud mascot: layered so it can wave, blink and sway -->
+              <div class="mascot" id="mascot" role="img" aria-label="EcoBud mascot, a heart-shaped leaf, waving">
+                <div class="mascot-rig">
+                  <img src="assets/images/ecobud-mascot/foot-l.webp" alt="" class="m-foot-l">
+                  <img src="assets/images/ecobud-mascot/foot-r.webp" alt="" class="m-foot-r">
+                  <img src="assets/images/ecobud-mascot/arm-r.webp" alt="" class="m-arm-r">
+                  <img src="assets/images/ecobud-mascot/arm-l.webp" alt="" class="m-arm-l">
+                  <img src="assets/images/ecobud-mascot/body.webp" alt="" class="m-body">
+                  <img src="assets/images/ecobud-mascot/sprout.webp" alt="" class="m-sprout">
+                  <img src="assets/images/ecobud-mascot/eye-r.webp" alt="" class="m-eye">
+                  <img src="assets/images/ecobud-mascot/eye-l.webp" alt="" class="m-eye">
+                  <img src="assets/images/ecobud-mascot/blink-r.webp" alt="" class="m-blink">
+                  <img src="assets/images/ecobud-mascot/blink-l.webp" alt="" class="m-blink">
+                  <img src="assets/images/ecobud-mascot/brow-r.webp" alt="" class="m-brow">
+                  <img src="assets/images/ecobud-mascot/brow-l.webp" alt="" class="m-brow">
+                  <img src="assets/images/ecobud-mascot/mouth.webp" alt="" class="m-mouth">
+                  <img src="assets/images/ecobud-mascot/mouth-joy.webp" alt="" class="m-joy">
+                </div>
+                <span class="mascot-bubble">Hi! I'm EcoBud</span>
+              </div>
+              <div class="project-info">
+                <h3 class="project-title">EcoBud</h3>
+                <p>
+                  An AI-assisted, gamified mobile app that raises awareness of solid waste management among residents:
+                  proper disposal, segregation and environmentally responsible habits. A web admin panel manages the
+                  users, lessons, challenges, events and rewards behind it.
+                </p>
+                <h4 class="did-label">What I built</h4>
+                <ul class="did">
+                  <li>Waste classification and recognition</li>
+                  <li>Environmental education content</li>
+                  <li>Community events and gamified challenges</li>
+                  <li>Points and rewards for taking part</li>
+                </ul>
+              </div>
+              <div class="project-media">
+                <div class="device-browser">
+                  <div class="db-bar"><i></i><i></i><i></i><span>EcoBud Admin Panel</span></div>
+                  <img src="assets/images/ecobud-desktop.png" alt="EcoBud admin panel dashboard with user, challenge, lesson and eco coin stats" class="zoomable" loading="lazy">
+                </div>
+                <div class="device-phone">
+                  <img src="assets/images/ecobud-mobile.webp" alt="EcoBud mobile app home screen with eco points level and EcoBud AI assistant" class="zoomable" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-bar">
+              <span class="project-no">02</span>
               <span class="project-kind">Cross-platform app · AI · 2026</span>
               <span class="project-role">Developer</span>
             </div>
@@ -354,7 +508,7 @@
 
           <article class="project">
             <div class="project-bar">
-              <span class="project-no">02</span>
+              <span class="project-no">03</span>
               <span class="project-kind">Web app · Recruitment · 2025</span>
               <span class="project-role">Developer</span>
             </div>
@@ -389,7 +543,7 @@
 
           <article class="project">
             <div class="project-bar">
-              <span class="project-no">03</span>
+              <span class="project-no">04</span>
               <span class="project-kind">Website · Hospitality</span>
               <span class="project-role">Co-developer</span>
             </div>
@@ -421,7 +575,7 @@
 
           <article class="project">
             <div class="project-bar">
-              <span class="project-no">04</span>
+              <span class="project-no">05</span>
               <span class="project-kind">Video · Podcast &amp; gaming · 2026</span>
               <span class="project-role">Editor</span>
             </div>
@@ -453,32 +607,21 @@
             </div>
           </article>
 
-          <article class="project project-text" data-reveal>
-            <div class="project-bar">
-              <span class="project-no">05</span>
-              <span class="project-kind">Mobile app · AI · Gamified · 2026</span>
-              <span class="project-role">Developer</span>
-            </div>
-            <div class="project-text-body">
-              <h3 class="project-title">EcoBud</h3>
-              <div>
-                <p>
-                  An AI-assisted, gamified mobile app that raises awareness of solid waste management among residents:
-                  proper disposal, segregation and environmentally responsible habits.
-                </p>
-                <h4 class="did-label">What I built</h4>
-                <ul class="did">
-                  <li>Waste classification and recognition</li>
-                  <li>Environmental education content</li>
-                  <li>Community events and gamified challenges</li>
-                  <li>Points and rewards for taking part</li>
-                </ul>
-              </div>
-            </div>
-          </article>
         </div>
       </div>
     </section>
+
+    <!-- Kinetic type band: rows slide opposite ways as you scroll -->
+    <div class="kinetic" aria-hidden="true">
+      <div class="kinetic-row" data-dir="-1">
+        <span>Design</span><i></i><span class="o">Develop</span><i></i><span>Deploy</span><i></i>
+        <span>Design</span><i></i><span class="o">Develop</span><i></i><span>Deploy</span><i></i>
+      </div>
+      <div class="kinetic-row" data-dir="1">
+        <span class="o">Cut</span><i></i><span>Grade</span><i></i><span class="o">Caption</span><i></i><span>Publish</span><i></i>
+        <span class="o">Cut</span><i></i><span>Grade</span><i></i><span class="o">Caption</span><i></i><span>Publish</span><i></i>
+      </div>
+    </div>
 
     <!-- 04 VIDEO EDITING -->
     <section id="video-editing" class="section">
@@ -860,6 +1003,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/motion.js"></script>
+  <script src="assets/js/buddy.js"></script>
 </body>
 
 </html>
