@@ -339,6 +339,29 @@ body { line-height: 1.6; }
 .project-eco .device-phone img { aspect-ratio: 9 / 20; }
 .project-eco .device-browser img { aspect-ratio: auto; object-fit: contain; }
 
+/* EcoBud ad video: spans the full card width under the info + screenshots */
+.eco-ad { grid-column: 1 / -1; margin: clamp(8px, 2vw, 24px) 0 0; position: relative; z-index: 1; }
+.eco-ad-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #15803d;
+}
+.eco-ad-frame {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #06140b;
+  border: 1px solid rgba(22, 163, 74, 0.25);
+  box-shadow: var(--shadow-lg);
+}
+.eco-ad-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #06140b; }
+[data-theme="dark"] .eco-ad-label { color: #4ade80; }
+
 /* Monitor (video editing) */
 .monitor { border-radius: var(--r); border-color: var(--line); box-shadow: var(--shadow-lg); background: var(--ink-2); }
 .monitor-bar { background: var(--ink-3); }

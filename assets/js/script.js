@@ -269,7 +269,7 @@
     tl.from(p.querySelector('.project-bar'), { opacity: 0, duration: 0.6 })
       .from(p.querySelector('.project-title'), { yPercent: 40 * D, opacity: 0, duration: 1, ease: 'expo.out' }, '<0.1')
       .from(p.querySelectorAll('.project-info > :not(.project-title)'), { y: 20 * D, opacity: 0, duration: 0.8, stagger: 0.07 }, '<0.15')
-      .from(p.querySelector('.device-browser, .tiktok-frame'),
+      .from(p.querySelector('.device-browser, .tiktok-frame, .shorts-grid'),
         reduce ? { opacity: 0, duration: 1 } : { clipPath: 'inset(0 100% 0 0)', duration: 1.2, ease: 'expo.inOut' }, 0.1);
 
     // phone slides up, then drifts with a light parallax
